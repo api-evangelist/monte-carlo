@@ -1,0 +1,74 @@
+aid: monte-carlo
+name: Monte Carlo
+description: >-
+  Monte Carlo is a data and AI observability platform that monitors data
+  warehouses, lakes, and pipelines for freshness, volume, schema, and quality
+  anomalies, helping data teams detect, resolve, and prevent data downtime
+  across Snowflake, Databricks, BigQuery, Redshift, and other modern data
+  stack tools. Monte Carlo exposes a GraphQL API at
+  https://api.getmontecarlo.com/graphql used for programmatic access to
+  monitors, incidents, lineage, assets, alerts, custom rules, and lake/metastore
+  integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
+  Authentication uses an API Key ID and Token pair sent via headers.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Data Observability
+  - Data Quality
+  - Data Reliability
+  - Data Lake
+  - Data Warehouse
+  - Lineage
+  - Monitoring
+  - AI Observability
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: monte-carlo:graphql-api
+    name: Monte Carlo GraphQL API
+    description: >-
+      GraphQL API for the Monte Carlo data observability platform. Provides
+      programmatic access to monitors, incidents, assets, lineage, custom
+      rules, warehouses, lakes, metastores, and alerts. Authentication uses
+      an account or personal API Key ID and Token sent via the
+      x-mcd-id and x-mcd-token headers (or as a Bearer token).
+    humanURL: https://docs.getmontecarlo.com/docs/api
+    baseURL: https://api.getmontecarlo.com/graphql
+    tags:
+      - Data Observability
+      - GraphQL
+      - Monitoring
+      - Data Quality
+      - Lineage
+    properties:
+      - type: Documentation
+        url: https://docs.getmontecarlo.com/docs/api
+      - type: Developer Resources
+        url: https://docs.getmontecarlo.com/docs/developer-resources
+      - type: Data Lakes Integration
+        url: https://docs.getmontecarlo.com/docs/data-lakes
+      - type: Python SDK (pycarlo)
+        url: https://github.com/monte-carlo-data/python-sdk
+      - type: CLI
+        url: https://github.com/monte-carlo-data/monte-carlo-cli
+      - type: MCP Server
+        url: https://docs.getmontecarlo.com/docs/mcp-server
+
+common:
+  - type: Website
+    url: https://www.montecarlodata.com
+  - type: Documentation
+    url: https://docs.getmontecarlo.com
+  - type: GitHub Organization
+    url: https://github.com/monte-carlo-data
+  - type: Pricing
+    url: https://www.montecarlodata.com/pricing/
+  - type: Sign Up
+    url: https://www.montecarlodata.com/request-a-demo/
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
