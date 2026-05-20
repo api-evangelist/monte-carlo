@@ -58,6 +58,8 @@ apis:
         url: https://docs.getmontecarlo.com/docs/mcp-server
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/monte-carlo-data
   - type: Website
     url: https://www.montecarlodata.com
   - type: Documentation
