@@ -71,6 +71,8 @@ common:
   - type: SignUp
     url: https://www.montecarlodata.com/request-a-demo/
 
+  - type: LLMsTxt
+    url: https://docs.getmontecarlo.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
