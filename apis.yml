@@ -13,66 +13,68 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Data Observability
-  - Data Quality
-  - Data Reliability
-  - Data Lake
-  - Data Warehouse
-  - Lineage
-  - Monitoring
-  - AI Observability
+- Data Observability
+- Data Quality
+- Data Reliability
+- Data Lake
+- Data Warehouse
+- Lineage
+- Monitoring
+- AI Observability
 url: >-
   https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: monte-carlo:graphql-api
-    name: Monte Carlo GraphQL API
-    description: >-
-      GraphQL API for the Monte Carlo data observability platform. Provides
-      programmatic access to monitors, incidents, assets, lineage, custom
-      rules, warehouses, lakes, metastores, and alerts. Authentication uses
-      an account or personal API Key ID and Token sent via the
-      x-mcd-id and x-mcd-token headers (or as a Bearer token).
-    humanURL: https://docs.getmontecarlo.com/docs/api
-    baseURL: https://api.getmontecarlo.com/graphql
-    tags:
-      - Data Observability
-      - GraphQL
-      - Monitoring
-      - Data Quality
-      - Lineage
-    properties:
-      - type: Documentation
-        url: https://docs.getmontecarlo.com/docs/api
-      - type: Developer Resources
-        url: https://docs.getmontecarlo.com/docs/developer-resources
-      - type: Data Lakes Integration
-        url: https://docs.getmontecarlo.com/docs/data-lakes
-      - type: Python SDK (pycarlo)
-        url: https://github.com/monte-carlo-data/python-sdk
-      - type: CLI
-        url: https://github.com/monte-carlo-data/monte-carlo-cli
-      - type: MCP Server
-        url: https://docs.getmontecarlo.com/docs/mcp-server
-
-common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/monte-carlo-data
-  - type: Website
-    url: https://www.montecarlodata.com
+- aid: monte-carlo:graphql-api
+  name: Monte Carlo GraphQL API
+  description: >-
+    GraphQL API for the Monte Carlo data observability platform. Provides
+    programmatic access to monitors, incidents, assets, lineage, custom
+    rules, warehouses, lakes, metastores, and alerts. Authentication uses
+    an account or personal API Key ID and Token sent via the
+    x-mcd-id and x-mcd-token headers (or as a Bearer token).
+  humanURL: https://docs.getmontecarlo.com/docs/api
+  baseURL: https://api.getmontecarlo.com/graphql
+  tags:
+  - Data Observability
+  - GraphQL
+  - Monitoring
+  - Data Quality
+  - Lineage
+  properties:
   - type: Documentation
-    url: https://docs.getmontecarlo.com
-  - type: GitHubOrganization
-    url: https://github.com/monte-carlo-data
-  - type: Pricing
-    url: https://www.montecarlodata.com/pricing/
-  - type: SignUp
-    url: https://www.montecarlodata.com/request-a-demo/
+    url: https://docs.getmontecarlo.com/docs/api
+  - type: Developer Resources
+    url: https://docs.getmontecarlo.com/docs/developer-resources
+  - type: Data Lakes Integration
+    url: https://docs.getmontecarlo.com/docs/data-lakes
+  - type: Python SDK (pycarlo)
+    url: https://github.com/monte-carlo-data/python-sdk
+  - type: CLI
+    url: https://github.com/monte-carlo-data/monte-carlo-cli
+  - type: MCP Server
+    url: https://docs.getmontecarlo.com/docs/mcp-server
 
-  - type: LLMsTxt
-    url: https://docs.getmontecarlo.com/llms.txt
+  - url: graphql/monte-carlo-graphql.md
+    type: GraphQL
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/monte-carlo-data
+- type: Website
+  url: https://www.montecarlodata.com
+- type: Documentation
+  url: https://docs.getmontecarlo.com
+- type: GitHubOrganization
+  url: https://github.com/monte-carlo-data
+- type: Pricing
+  url: https://www.montecarlodata.com/pricing/
+- type: SignUp
+  url: https://www.montecarlodata.com/request-a-demo/
+
+- type: LLMsTxt
+  url: https://docs.getmontecarlo.com/llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

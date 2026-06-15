@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Monte Carlo GraphQL API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-mcd-id",
+      "value": "{{x-mcd-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQL endpoint",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.getmontecarlo.com/graphql",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a GraphQL query or mutation against Monte Carlo. Common\noperations include `getUser`, `getTables`, `getMonitor`,\n`getIncidents`, and `createOrUpdateMonitor`. To discover the exact\noperations powering a given Monte Carlo UI view, inspect the network\nrequests issued by that page.\n"
+    }
+  ],
+  "bundled": true
+}
