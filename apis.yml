@@ -11,7 +11,7 @@ description: >-
   integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
   Authentication uses an API Key ID and Token pair sent via headers.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Data Observability
 - Data Quality
