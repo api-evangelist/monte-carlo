@@ -60,6 +60,12 @@ apis:
   - url: graphql/monte-carlo-graphql.md
     type: GraphQL
 common:
+- type: TrustCenter
+  url: security/monte-carlo-trust-center.yml
+- type: DomainSecurity
+  url: security/monte-carlo-domain-security.yml
+- type: Authentication
+  url: authentication/monte-carlo-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/monte-carlo-data
 - type: Website
@@ -75,6 +81,8 @@ common:
 
 - type: LlmsText
   url: https://docs.getmontecarlo.com/llms.txt
+- url: https://montecarlodata.com/blog/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/monte-carlo-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: mcdHeaders
+  type: apiKey
+  in: header
+  parameter: x-mcd-id
+  description: |-
+    Monte Carlo expects two headers on each request: `x-mcd-id` (Key ID)
+    and `x-mcd-token` (Secret). OpenAPI cannot represent paired header
+    auth natively, so `x-mcd-token` must also be sent on every request.
+  sources:
+  - openapi/monte-carlo-openapi.yml
