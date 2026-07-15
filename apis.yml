@@ -60,6 +60,8 @@ apis:
   - url: graphql/monte-carlo-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/monte-carlo-agentic-access.yml
 - type: TrustCenter
   url: security/monte-carlo-trust-center.yml
 - type: DomainSecurity
