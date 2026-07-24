@@ -1,105 +1,99 @@
 openapi: 3.1.0
 info:
-  title: Monte Carlo GraphQL API
-  version: "v1"
-  description: |
-    Monte Carlo exposes a single GraphQL endpoint at
+  title: Monte Carlo Graphql API
+  version: v1
+  description: 'Monte Carlo exposes a single GraphQL endpoint at
+
     `https://api.getmontecarlo.com/graphql` that backs the same operations
+
     used by the Monte Carlo UI. Every piece of data shown in the UI can be
+
     retrieved or mutated through this endpoint — monitors, incidents, alerts,
+
     assets, lineage, custom rules, warehouses, lakes, metastores, audit logs,
+
     tags, and the data catalog.
 
+
     Authentication uses an account or personal API Key ID and Secret sent via
+
     the `x-mcd-id` and `x-mcd-token` headers. Keys are generated from 42
+
     cryptographically secure random bytes, base64-encoded to a 56-character
+
     string; only Account Owners can create account-level keys.
+
+    '
   contact:
     name: Monte Carlo
     url: https://docs.getmontecarlo.com/docs/api
 servers:
-  - url: https://api.getmontecarlo.com
-    description: Monte Carlo API
+- url: https://api.getmontecarlo.com
+  description: Monte Carlo API
 security:
-  - mcdHeaders: []
+- mcdHeaders: []
+tags:
+- name: Graphql
 paths:
   /graphql:
     post:
       operationId: graphql
       summary: GraphQL endpoint
-      description: |
-        Execute a GraphQL query or mutation against Monte Carlo. Common
+      description: 'Execute a GraphQL query or mutation against Monte Carlo. Common
+
         operations include `getUser`, `getTables`, `getMonitor`,
+
         `getIncidents`, and `createOrUpdateMonitor`. To discover the exact
+
         operations powering a given Monte Carlo UI view, inspect the network
+
         requests issued by that page.
+
+        '
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GraphQLRequest"
+              $ref: '#/components/schemas/GraphQLRequest'
             examples:
               getUser:
                 summary: Authenticated user
                 value:
-                  query: |
-                    query { getUser { email firstName lastName } }
+                  query: 'query { getUser { email firstName lastName } }
+
+                    '
               getMonitors:
                 summary: List monitors
                 value:
-                  query: |
-                    query GetMonitors($first: Int) {
-                      getMonitors(first: $first) {
-                        edges { node { uuid name description } }
-                      }
-                    }
-                  variables: { first: 25 }
+                  query: "query GetMonitors($first: Int) {\n  getMonitors(first: $first) {\n    edges { node { uuid name description } }\n  }\n}\n"
+                  variables:
+                    first: 25
               getIncidents:
                 summary: List incidents
                 value:
-                  query: |
-                    query { getIncidents(first: 10) { edges { node { id title } } } }
+                  query: 'query { getIncidents(first: 10) { edges { node { id title } } } }
+
+                    '
               createOrUpdateMonitor:
                 summary: Create or update a monitor
                 value:
-                  query: |
-                    mutation ($input: CreateOrUpdateMonitorInput!) {
-                      createOrUpdateMonitor(input: $input) { monitor { uuid } }
-                    }
+                  query: "mutation ($input: CreateOrUpdateMonitorInput!) {\n  createOrUpdateMonitor(input: $input) { monitor { uuid } }\n}\n"
                   variables:
                     input: {}
       responses:
-        "200":
+        '200':
           description: GraphQL response (data and/or errors)
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GraphQLResponse"
-        "401":
+                $ref: '#/components/schemas/GraphQLResponse'
+        '401':
           description: Missing or invalid API key headers
+      tags:
+      - Graphql
 components:
-  securitySchemes:
-    mcdHeaders:
-      type: apiKey
-      in: header
-      name: x-mcd-id
-      description: |
-        Monte Carlo expects two headers on each request: `x-mcd-id` (Key ID)
-        and `x-mcd-token` (Secret). OpenAPI cannot represent paired header
-        auth natively, so `x-mcd-token` must also be sent on every request.
   schemas:
-    GraphQLRequest:
-      type: object
-      required: [query]
-      properties:
-        query:
-          type: string
-        variables:
-          type: object
-          additionalProperties: true
-        operationName:
-          type: string
     GraphQLResponse:
       type: object
       properties:
@@ -111,10 +105,36 @@ components:
           items:
             type: object
             properties:
-              message: { type: string }
+              message:
+                type: string
               path:
                 type: array
-                items: { type: string }
+                items:
+                  type: string
               extensions:
                 type: object
                 additionalProperties: true
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+        variables:
+          type: object
+          additionalProperties: true
+        operationName:
+          type: string
+  securitySchemes:
+    mcdHeaders:
+      type: apiKey
+      in: header
+      name: x-mcd-id
+      description: 'Monte Carlo expects two headers on each request: `x-mcd-id` (Key ID)
+
+        and `x-mcd-token` (Secret). OpenAPI cannot represent paired header
+
+        auth natively, so `x-mcd-token` must also be sent on every request.
+
+        '
