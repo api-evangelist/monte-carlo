@@ -11,7 +11,19 @@ description: >-
   integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
   Authentication uses an API Key ID and Token pair sent via headers.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/monte-carlo.png
 tags:
 - Data Observability
 - Data Quality
@@ -30,11 +42,10 @@ apis:
 - aid: monte-carlo:graphql-api
   name: Monte Carlo GraphQL API
   description: >-
-    GraphQL API for the Monte Carlo data observability platform. Provides
-    programmatic access to monitors, incidents, assets, lineage, custom
-    rules, warehouses, lakes, metastores, and alerts. Authentication uses
-    an account or personal API Key ID and Token sent via the
-    x-mcd-id and x-mcd-token headers (or as a Bearer token).
+    GraphQL API for the Monte Carlo data observability platform. Provides programmatic access to monitors,
+    incidents, assets, lineage, custom rules, warehouses, lakes, metastores, and alerts. Authentication
+    uses an account or personal API Key ID and Token sent via the x-mcd-id and x-mcd-token headers (or
+    as a Bearer token).
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
@@ -56,9 +67,18 @@ apis:
     url: https://github.com/monte-carlo-data/monte-carlo-cli
   - type: MCP Server
     url: https://docs.getmontecarlo.com/docs/mcp-server
-
   - url: graphql/monte-carlo-graphql.md
     type: GraphQL
+- aid: monte-carlo:monte-carlo-graphql-api
+  name: Monte Carlo Graphql API
+  description: The Graphql API from Monte Carlo — 1 operation(s) for graphql.
+  humanURL: https://docs.getmontecarlo.com/docs/api
+  baseURL: https://api.getmontecarlo.com/graphql
+  tags:
+  - Graphql
+  properties:
+  - type: OpenAPI
+    url: openapi/monte-carlo-graphql-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/monte-carlo-agentic-access.yml
