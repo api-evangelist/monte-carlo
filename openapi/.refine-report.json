@@ -1,0 +1,14 @@
+{
+  "provider": "monte-carlo",
+  "sources": [
+    "monte-carlo-graphql-api-openapi.yml"
+  ],
+  "outputs": [
+    "monte-carlo-graphql-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
