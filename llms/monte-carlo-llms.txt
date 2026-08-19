@@ -1,0 +1,443 @@
+# Monte Carlo Documentation
+
+> Data breaks. We ensure your team is the first to know and the first to solve.
+
+## Guides
+- [Agent Monitors Overview](https://docs.getmontecarlo.com/docs/agent-monitors-overview.md): Agent Observability capabilities, instrumentation setup, and monitor types for tracking agent behavior.
+- [Trace and Conversation Structure](https://docs.getmontecarlo.com/docs/exploring-agent-traces.md): What a trace contains, how to read one, and how traces relate to conversations.
+- [Agent Evaluation Monitors](https://docs.getmontecarlo.com/docs/agent-evaluation-monitors.md)
+- [Agent Metric Monitors](https://docs.getmontecarlo.com/docs/agent-metric-monitors.md)
+- [Agent Trajectory Monitors](https://docs.getmontecarlo.com/docs/agent-trajectory-monitors.md)
+- [Agent Validation Monitors](https://docs.getmontecarlo.com/docs/agent-validation-monitors.md)
+- [Pre-Prod Agent Monitors](https://docs.getmontecarlo.com/docs/pre-prod-agent-monitors.md)
+- [Google ADK Integration](https://docs.getmontecarlo.com/docs/google-adk-integration.md): Instrument Google Agent Development Kit (ADK) agents to emit OpenTelemetry GenAI traces into your warehouse for Monte Carlo Agent Observability.
+- [Snowflake Intelligence (Cortex Agents)](https://docs.getmontecarlo.com/docs/snowflake-intelligence-cortex-agents.md): Monitor Snowflake Cortex Agents in Monte Carlo for full agent observability
+- [Databricks agents](https://docs.getmontecarlo.com/docs/databricks-agent-bricks.md): Monitor Databricks Agent Bricks, Mosaic AI Agent Framework, and AI/BI Genie agents in Monte Carlo for full agent observability
+- [Agent Bricks and custom agents](https://docs.getmontecarlo.com/docs/agent-bricks-and-custom-agents.md): Monitor Databricks Agent Bricks and Mosaic AI Agent Framework agents in Monte Carlo for full agent observability
+- [AI/BI Genie](https://docs.getmontecarlo.com/docs/databricks-ai-bi-genie.md): Monitor Databricks AI/BI Genie spaces in Monte Carlo for full agent observability
+- [Operations agent](https://docs.getmontecarlo.com/docs/operations-agent.md)
+- [Troubleshooting agent](https://docs.getmontecarlo.com/docs/troubleshooting-agent.md)
+- [Triage agent](https://docs.getmontecarlo.com/docs/triage-agent.md)
+- [Tuning agent](https://docs.getmontecarlo.com/docs/tuning-agent.md)
+- [Cost & Performance agent](https://docs.getmontecarlo.com/docs/cost-agent.md)
+- [PR agent](https://docs.getmontecarlo.com/docs/pr-agent.md)
+- [PII / Compliance Agent](https://docs.getmontecarlo.com/docs/pii-detection.md): Warehouse-native PII discovery and monitoring for compliance and governance teams.
+- [MCP Server](https://docs.getmontecarlo.com/docs/mcp-server.md): How AI agents interact with Monte Carlo
+- [Reference & operations](https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations.md): Toolsets, network access control, security, troubleshooting, and Node/curl setup for the Monte Carlo MCP Server.
+- [Agent Toolkit](https://docs.getmontecarlo.com/docs/agent-toolkit.md): Monte Carlo's Agent Toolkit enables an agentic experience, allowing your AI tools to interact with your Monte Carlo Data account and bring data observability into your development workflow.
+- [MC Prevent](https://docs.getmontecarlo.com/docs/mc-prevent.md): MC Prevent is Monte Carlo's suite of agents for preventing bad data changes before they reach production. This doc covers the **Code Change** skill, which runs inside your AI editor during development. The suite also includes PR Agent (code review) and CI Agent (pipeline gating).  MC Prevent: Code Change surfaces data observability context before you write a single line of code and keeps it there through every step of your change.
+- [Monitors](https://docs.getmontecarlo.com/docs/monitors-overview.md)
+- [Table](https://docs.getmontecarlo.com/docs/pipeline-observability.md)
+- [Freshness](https://docs.getmontecarlo.com/docs/freshness.md)
+- [Volume](https://docs.getmontecarlo.com/docs/volume.md)
+- [Schema Change](https://docs.getmontecarlo.com/docs/schema-change.md)
+- [JSON Schema Monitors](https://docs.getmontecarlo.com/docs/json-schema-monitor.md)
+- [Metric Monitors](https://docs.getmontecarlo.com/docs/metric-monitors.md)
+- [Available Metrics](https://docs.getmontecarlo.com/docs/available-metrics.md)
+- [Custom Metrics](https://docs.getmontecarlo.com/docs/custom-metrics.md)
+- [Segmentation](https://docs.getmontecarlo.com/docs/segmentation.md)
+- [Backfill History](https://docs.getmontecarlo.com/docs/backfill-history.md)
+- [ML Observability](https://docs.getmontecarlo.com/docs/monitoring-ml-models.md)
+- [Comparison Monitors](https://docs.getmontecarlo.com/docs/comparison-rules.md)
+- [Validation Monitors](https://docs.getmontecarlo.com/docs/validation-monitors.md)
+- [Available Conditions](https://docs.getmontecarlo.com/docs/available-conditions.md)
+- [Custom SQL](https://docs.getmontecarlo.com/docs/creating-sql-rules.md)
+- [Templates](https://docs.getmontecarlo.com/docs/sql-rule-templates.md)
+- [Freshness Rules](https://docs.getmontecarlo.com/docs/freshness-rules.md)
+- [Volume Rules](https://docs.getmontecarlo.com/docs/setting-up-volume-rules.md)
+- [Exception Management](https://docs.getmontecarlo.com/docs/exception-management.md)
+- [Query Performance](https://docs.getmontecarlo.com/docs/setting-up-performance-monitors.md)
+- [Monitor logs](https://docs.getmontecarlo.com/docs/monitor-logs.md)
+- [Reducing noise from monitors](https://docs.getmontecarlo.com/docs/reducing-noise-from-monitors.md)
+- [Partition filtering for monitors](https://docs.getmontecarlo.com/docs/monitor-partition-support.md)
+- [Failure notifications](https://docs.getmontecarlo.com/docs/failing-monitors.md)
+- [Monitor tags](https://docs.getmontecarlo.com/docs/monitor-tags.md)
+- [Alerts](https://docs.getmontecarlo.com/docs/incidents.md): Discover anomalous events happening in your data ecosystem.
+- [Interacting with Alerts](https://docs.getmontecarlo.com/docs/interacting-with-incidents.md)
+- [Marking Alerts as Incidents](https://docs.getmontecarlo.com/docs/marking-alerts-as-incidents.md)
+- [Alert Statuses](https://docs.getmontecarlo.com/docs/incident-statuses.md)
+- [Dashboards](https://docs.getmontecarlo.com/docs/dashboards.md)
+- [Data operations](https://docs.getmontecarlo.com/docs/data-operations-dashboard.md)
+- [Data quality](https://docs.getmontecarlo.com/docs/data-quality.md)
+- [Table health](https://docs.getmontecarlo.com/docs/using-the-table-health-dashboard.md)
+- [Activity](https://docs.getmontecarlo.com/docs/activity-dashboard.md)
+- [Custom dashboards](https://docs.getmontecarlo.com/docs/custom-dashboards.md)
+- [Assets](https://docs.getmontecarlo.com/docs/assets.md): Your data assets, all in one place.
+- [Using Assets](https://docs.getmontecarlo.com/docs/using-assets.md)
+- [Muting](https://docs.getmontecarlo.com/docs/muting.md)
+- [Asset tags](https://docs.getmontecarlo.com/docs/tags.md)
+- [Field Lineage](https://docs.getmontecarlo.com/docs/field-lineage.md)
+- [Data Profiler](https://docs.getmontecarlo.com/docs/using-the-data-profiler.md)
+- [Metric investigation](https://docs.getmontecarlo.com/docs/metric-investigation.md)
+- [Pull requests](https://docs.getmontecarlo.com/docs/pull-requests.md)
+- [Root Cause Analysis (RCA) Insights](https://docs.getmontecarlo.com/docs/rca-detections.md)
+- [Data Products](https://docs.getmontecarlo.com/docs/using-data-product-dashboards.md)
+- [Anomaly Detection](https://docs.getmontecarlo.com/docs/anomaly-detection-overview.md)
+- [Tuning thresholds](https://docs.getmontecarlo.com/docs/tuning-thresholds.md)
+- [Exclusion Windows](https://docs.getmontecarlo.com/docs/exclusion-windows.md)
+- [Managing Holidays](https://docs.getmontecarlo.com/docs/managing-holidays.md)
+- [User Profile](https://docs.getmontecarlo.com/docs/user-profile.md)
+- [Weekly Data Reliability Summary Email](https://docs.getmontecarlo.com/docs/weekly-data-reliability-summary-email.md)
+- [Performance](https://docs.getmontecarlo.com/docs/performance.md): Surface and troubleshoot slow performance of queries and ETL jobs.
+- [Data exports](https://docs.getmontecarlo.com/docs/data-exports.md)
+- [Settings](https://docs.getmontecarlo.com/docs/settings.md)
+- [Notifications](https://docs.getmontecarlo.com/docs/notifications-v2.md)
+- [Authorization](https://docs.getmontecarlo.com/docs/authorization.md)
+- [Managing Users](https://docs.getmontecarlo.com/docs/managing-users.md)
+- [Managing Authorization Groups](https://docs.getmontecarlo.com/docs/managing-authorization-groups.md)
+- [Managing Roles](https://docs.getmontecarlo.com/docs/managing-roles.md)
+- [Custom Role Recipes](https://docs.getmontecarlo.com/docs/custom-role-recipes.md)
+- [Policies and Permission Resolution](https://docs.getmontecarlo.com/docs/policies-and-permission-resolution.md)
+- [Debugging Authorization](https://docs.getmontecarlo.com/docs/debugging-authorization.md)
+- [Data Authorization](https://docs.getmontecarlo.com/docs/data-authorization.md)
+- [Single Sign On (SSO)](https://docs.getmontecarlo.com/docs/setting-up-single-sign-on-sso.md)
+- [Map SSO Groups to Authorization Groups](https://docs.getmontecarlo.com/docs/mapping-sso-authorization-groups.md)
+- [FAQs and Troubleshooting](https://docs.getmontecarlo.com/docs/sso-faqs-and-troubleshooting.md)
+- [SCIM](https://docs.getmontecarlo.com/docs/auth-provisioning-with-scim.md)
+- [SCIM Provision with Okta](https://docs.getmontecarlo.com/docs/setting-up-scim-provisioning-with-okta.md)
+- [SCIM Provision with Microsoft Entra ID](https://docs.getmontecarlo.com/docs/setting-up-scim-provisioning-with-microsoft-entra-id.md)
+- [Billing](https://docs.getmontecarlo.com/docs/billing.md)
+- [Service Level Objectives (SLOs)](https://docs.getmontecarlo.com/docs/service-level-objectives-slos.md): Configure SLO policies to enforce response time standards for alerts and track compliance across your team.
+- [Data Warehouses](https://docs.getmontecarlo.com/docs/overview-data-warehouses.md): Integrate Monte Carlo with your Data Warehouse
+- [Snowflake](https://docs.getmontecarlo.com/docs/snowflake.md)
+- [BigQuery](https://docs.getmontecarlo.com/docs/bigquery.md)
+- [Redshift](https://docs.getmontecarlo.com/docs/redshift.md)
+- [Redshift Datashares](https://docs.getmontecarlo.com/docs/redshift-datashares.md)
+- [Salesforce Data Cloud](https://docs.getmontecarlo.com/docs/salesforce-data-cloud.md)
+- [Azure Synapse (public preview)](https://docs.getmontecarlo.com/docs/azure-synapse.md)
+- [Microsoft Fabric (public preview)](https://docs.getmontecarlo.com/docs/microsoft-fabric.md)
+- [Teradata](https://docs.getmontecarlo.com/docs/teradata.md)
+- [MotherDuck (public preview)](https://docs.getmontecarlo.com/docs/motherduck.md)
+- [Dremio (public preview)](https://docs.getmontecarlo.com/docs/dremio.md)
+- [Starburst (public preview)](https://docs.getmontecarlo.com/docs/starburst.md)
+- [ClickHouse (public preview)](https://docs.getmontecarlo.com/docs/clickhouse.md)
+- [Adding Additional Warehouses](https://docs.getmontecarlo.com/docs/adding-another-warehouse.md)
+- [Databricks](https://docs.getmontecarlo.com/docs/overview-databricks.md)
+- [Troubleshooting & FAQ: Databricks](https://docs.getmontecarlo.com/docs/databricks-troubleshooting-faq.md)
+- [End of life for Notebook-based Metadata Collection on Databricks](https://docs.getmontecarlo.com/docs/end-of-life-for-notebook-based-metadata-collection-on-databricks.md)
+- [Databricks Workflows](https://docs.getmontecarlo.com/docs/databricks-workflow.md)
+- [Databricks Query History Access change](https://docs.getmontecarlo.com/docs/databricks-query-history-access-change.md)
+- [Data Lakes](https://docs.getmontecarlo.com/docs/data-lakes.md)
+- [Glue](https://docs.getmontecarlo.com/docs/glue.md)
+- [Hive Metastore](https://docs.getmontecarlo.com/docs/hive-mysql.md)
+- [Athena](https://docs.getmontecarlo.com/docs/athena.md)
+- [Presto](https://docs.getmontecarlo.com/docs/presto.md)
+- [Hive SQL](https://docs.getmontecarlo.com/docs/hive-sql.md)
+- [Spark](https://docs.getmontecarlo.com/docs/spark.md)
+- [Presto, Hive, & EMR: Query Logs](https://docs.getmontecarlo.com/docs/s3-events-query-logs.md)
+- [Troubleshooting & FAQ: Data Lakes](https://docs.getmontecarlo.com/docs/troubleshooting-faq-data-lakes.md)
+- [Creating IAM Roles](https://docs.getmontecarlo.com/docs/creating-iam-roles.md)
+- [Auto-generating IAM Policy Documents](https://docs.getmontecarlo.com/docs/auto-generating-iam-policies.md)
+- [Creating event notifications](https://docs.getmontecarlo.com/docs/creating-event-notifications.md)
+- [Adding Additional Connections](https://docs.getmontecarlo.com/docs/adding-additional-connections.md)
+- [Metastore + Query Engine Functionality Matrix](https://docs.getmontecarlo.com/docs/metastore-query-engine-functionality-matrix.md)
+- [Transactional Databases](https://docs.getmontecarlo.com/docs/overview-transactional-databases.md): Integrate Monte Carlo with your Transactional Databases
+- [SQL Server](https://docs.getmontecarlo.com/docs/sql-server.md)
+- [Postgres](https://docs.getmontecarlo.com/docs/postgres.md)
+- [Azure SQL Database](https://docs.getmontecarlo.com/docs/azure-sql-database.md)
+- [Oracle DB](https://docs.getmontecarlo.com/docs/oracle.md)
+- [MySQL](https://docs.getmontecarlo.com/docs/mysql.md)
+- [SAP HANA](https://docs.getmontecarlo.com/docs/sap-hana.md)
+- [Salesforce CRM (public preview)](https://docs.getmontecarlo.com/docs/salesforce-crm.md)
+- [Db2 (public preview)](https://docs.getmontecarlo.com/docs/db2.md)
+- [Pinecone (public preview)](https://docs.getmontecarlo.com/docs/pinecone.md)
+- [Object Storage: S3, GCS and ABS](https://docs.getmontecarlo.com/docs/file-storage-monitoring.md)
+- [Snowflake External Tables](https://docs.getmontecarlo.com/docs/snowflake-external-tables.md)
+- [Redshift External Tables](https://docs.getmontecarlo.com/docs/redshift-external-tables.md)
+- [Glue External Tables](https://docs.getmontecarlo.com/docs/aws-s3-using-glue-and-athena.md)
+- [Azure Synapse (Dedicated SQL Pool) External Tables](https://docs.getmontecarlo.com/docs/azure-synapse-external-tables.md)
+- [BigQuery External Tables](https://docs.getmontecarlo.com/docs/bigquery-external-tables.md)
+- [Databricks External Tables](https://docs.getmontecarlo.com/docs/databricks-external-tables.md)
+- [BI Tools](https://docs.getmontecarlo.com/docs/bi-tools.md): Integrate Monte Carlo with your Business Tools
+- [Looker](https://docs.getmontecarlo.com/docs/looker.md)
+- [Troubleshooting and FAQs: Looker](https://docs.getmontecarlo.com/docs/troubleshooting-and-faqs-looker.md): Guide to troubleshooting and FAQs about the Looker integration
+- [Mode BI](https://docs.getmontecarlo.com/docs/mode.md)
+- [Periscope/Sisense (public preview)](https://docs.getmontecarlo.com/docs/periscope-sisense.md)
+- [Power BI](https://docs.getmontecarlo.com/docs/powerbi.md)
+- [Power BI - Credential Creation Process](https://docs.getmontecarlo.com/docs/power-bi-credential-creation-process.md)
+- [Troubleshooting and FAQs: Power BI](https://docs.getmontecarlo.com/docs/troubleshooting-and-faqs-power-bi.md): Guide to troubleshooting and FAQs about the Power BI integration
+- [Sigma](https://docs.getmontecarlo.com/docs/sigma.md)
+- [Tableau - Connected Apps version, recommended](https://docs.getmontecarlo.com/docs/tableau.md): Authenticate to Tableau and integrate views and workbooks with Monte Carlo
+- [Troubleshooting and FAQs: Tableau](https://docs.getmontecarlo.com/docs/tableau-faqs-and-troubleshooting.md): Guide to troubleshooting and FAQs about the Tableau integration
+- [Tableau - PAT version, CLI-only initial setup](https://docs.getmontecarlo.com/docs/tableau-pat.md): Authenticate to Tableau and integrate views and workbooks with Monte Carlo
+- [Troubleshooting and FAQs: Tableau (PAT version, CLI-only)](https://docs.getmontecarlo.com/docs/troubleshooting-and-faqs-tableau-deprecated.md): Guide to troubleshooting and FAQs about the Tableau integration
+- [Hex](https://docs.getmontecarlo.com/docs/hex-beta.md)
+- [Airflow](https://docs.getmontecarlo.com/docs/airflow.md)
+- [Airflow in Lineage](https://docs.getmontecarlo.com/docs/airflow-in-lineage.md)
+- [Airflow Alerts and Task Observability](https://docs.getmontecarlo.com/docs/airflow-incidents-dags-and-tasks.md)
+- [Airflow DAG and Task Lineage](https://docs.getmontecarlo.com/docs/airflow-dag-and-task-lineage.md)
+- [dbt Integration](https://docs.getmontecarlo.com/docs/dbt-integration.md)
+- [dbt Cloud](https://docs.getmontecarlo.com/docs/dbt-cloud.md)
+- [dbt Core](https://docs.getmontecarlo.com/docs/dbt-core.md)
+- [dbt Failures As Monte Carlo Alerts](https://docs.getmontecarlo.com/docs/dbt-failures-are-monte-carlo-incidents.md)
+- [Fivetran Integration](https://docs.getmontecarlo.com/docs/fivetran-integration.md)
+- [Troubleshooting and FAQ: Fivetran](https://docs.getmontecarlo.com/docs/faq.md)
+- [Kafka (public preview)](https://docs.getmontecarlo.com/docs/kafka.md)
+- [Confluent Cloud (public preview)](https://docs.getmontecarlo.com/docs/kafka-confluent-cloud.md)
+- [Self-Hosted Kafka (public preview)](https://docs.getmontecarlo.com/docs/kafka-self-hosted-and-other-platforms.md)
+- [MSK (public preview)](https://docs.getmontecarlo.com/docs/kafka-msk.md)
+- [Prefect](https://docs.getmontecarlo.com/docs/prefect.md)
+- [Circuit breakers](https://docs.getmontecarlo.com/docs/circuit-breakers.md)
+- [Using providers](https://docs.getmontecarlo.com/docs/using-providers.md)
+- [Azure Data Factory](https://docs.getmontecarlo.com/docs/azure-data-factory.md)
+- [Additional Support for ADF in Lineage](https://docs.getmontecarlo.com/docs/adf-in-lineage.md)
+- [GCP Dataform (Public Preview)](https://docs.getmontecarlo.com/docs/gcp-dataform.md)
+- [Snowflake Tasks (Public Preview)](https://docs.getmontecarlo.com/docs/snowflake-tasks.md)
+- [Real-Time Task Failure Notifications](https://docs.getmontecarlo.com/docs/real-time-task-failure-notifications.md)
+- [GitHub](https://docs.getmontecarlo.com/docs/github.md): Integrate Monte Carlo with your Github to gain visibility into code impact on your data
+- [GitHub Enterprise Server (GHES) Integration](https://docs.getmontecarlo.com/docs/github-enterprise-server-ghes-integration.md): Integrate Monte Carlo with your self-hosted GitHub Enterprise Server instance to gain visibility into code impact on your data.
+- [GitLab (public preview)](https://docs.getmontecarlo.com/docs/gitlab.md): Integrate Monte Carlo with your GitLab to gain visibility into code impact on your data
+- [Azure DevOps (Public Preview)](https://docs.getmontecarlo.com/docs/azure-devops.md): Integrate Monte Carlo with Azure DevOps Repos to gain visibility into code impact on your data
+- [Azure DevOps Work Items (Public Preview)](https://docs.getmontecarlo.com/docs/azure-devops-work-items.md)
+- [Datadog](https://docs.getmontecarlo.com/docs/datadog.md)
+- [FireHydrant](https://docs.getmontecarlo.com/docs/firehydrant.md): Integrate Monte Carlo with FireHydrant
+- [Google Chat](https://docs.getmontecarlo.com/docs/google-chat.md): Integrate Monte Carlo with Google Chat teams
+- [Incident.io](https://docs.getmontecarlo.com/docs/incidentio.md)
+- [Jira](https://docs.getmontecarlo.com/docs/jira.md)
+- [Linear](https://docs.getmontecarlo.com/docs/linear.md)
+- [Microsoft Teams](https://docs.getmontecarlo.com/docs/ms-teams.md): Integrate Monte Carlo with Microsoft Teams
+- [[Legacy version] Microsoft Teams](https://docs.getmontecarlo.com/docs/ms-teams-legacy.md): Integrate Monte Carlo with Microsoft Teams
+- [Opsgenie](https://docs.getmontecarlo.com/docs/opsgenie.md): Integrate Monte Carlo with Opsgenie
+- [PagerDuty](https://docs.getmontecarlo.com/docs/pagerduty.md): Integrate Monte Carlo with PagerDuty
+- [ServiceNow](https://docs.getmontecarlo.com/docs/servicenow.md): Integrate Monte Carlo with ServiceNow
+- [Slack](https://docs.getmontecarlo.com/docs/slack.md): Integrate Monte Carlo with Slack
+- [Slack AI](https://docs.getmontecarlo.com/docs/slack-ai.md): Chat with Monte Carlo's AI agent directly in Slack
+- [Webex](https://docs.getmontecarlo.com/docs/webex.md)
+- [Webhooks](https://docs.getmontecarlo.com/docs/webhooks.md): Integrate Monte Carlo with a Webhook
+- [Alation](https://docs.getmontecarlo.com/docs/alation.md)
+- [Atlan](https://docs.getmontecarlo.com/docs/atlan.md)
+- [Collibra (public preview)](https://docs.getmontecarlo.com/docs/collibra.md)
+- [data.world](https://docs.getmontecarlo.com/docs/dataworld.md)
+- [Secoda](https://docs.getmontecarlo.com/docs/secoda.md)
+- [Select Star](https://docs.getmontecarlo.com/docs/select-star.md)
+- [Custom Warehouse, Database, and Lake Integrations (Public Preview)](https://docs.getmontecarlo.com/docs/custom-integrations.md)
+- [Push Ingest API](https://docs.getmontecarlo.com/docs/push-ingest-api.md)
+- [Example: IOMETE](https://docs.getmontecarlo.com/docs/example-iomete.md)
+- [Custom Connectors](https://docs.getmontecarlo.com/docs/custom-connectors.md)
+- [Validating with Monitors](https://docs.getmontecarlo.com/docs/validating-with-monitors.md)
+- [Example: CockroachDB](https://docs.getmontecarlo.com/docs/example-cockroachdb.md)
+- [Example: Oracle DB v11](https://docs.getmontecarlo.com/docs/example-oracle-db-v11.md)
+- [Example: Microsoft Fabric](https://docs.getmontecarlo.com/docs/custom-microsoft-fabric-example.md)
+- [Data Collection: Details per Integration](https://docs.getmontecarlo.com/docs/data-collection-details-per-integration.md)
+- [Data Asset Validators](https://docs.getmontecarlo.com/docs/data-validators.md)
+- [Updating an Integration](https://docs.getmontecarlo.com/docs/updating-integrations.md)
+- [Overview](https://docs.getmontecarlo.com/docs/developer-resources.md)
+- [Monitors as Code](https://docs.getmontecarlo.com/docs/monitors-as-code.md)
+- [Setting Up Monitors as Code](https://docs.getmontecarlo.com/docs/setting-up-monitors-as-code.md): Step-by-step guide to your first MaC deployment.
+- [Agent Monitors](https://docs.getmontecarlo.com/docs/agent-monitors-as-code.md): Monitor AI agents — metrics, evaluations, trajectory, and validation — with Monitors as Code.
+- [Agent Metric Monitor](https://docs.getmontecarlo.com/docs/agent-metric.md): Track statistical metrics over agent spans with Monitors as Code.
+- [Agent Evaluation Monitor](https://docs.getmontecarlo.com/docs/agent-evaluation.md): Score agent outputs with LLM-as-judge evaluations using Monitors as Code.
+- [Agent Trajectory Monitor](https://docs.getmontecarlo.com/docs/agent-trajectory.md): Alert on agent span occurrence and relationship patterns with Monitors as Code.
+- [Agent Validation Monitor](https://docs.getmontecarlo.com/docs/agent-validation.md): Enforce row-level validation rules over agent spans with Monitors as Code.
+- [Table Monitors](https://docs.getmontecarlo.com/docs/mac-table-monitors.md): Monitor freshness, volume, schema, and JSON structure across tables with Monitors as Code.
+- [Table Monitor](https://docs.getmontecarlo.com/docs/table.md): Broad anomaly detection for freshness, volume, and schema changes across many tables at once.
+- [JSON Schema Monitor](https://docs.getmontecarlo.com/docs/json-schema.md): Monitor JSON column structure for unexpected schema changes.
+- [Metric Monitors](https://docs.getmontecarlo.com/docs/mac-metric-monitors.md): Track field- and table-level statistical metrics over time with Monitors as Code.
+- [Metric Monitor](https://docs.getmontecarlo.com/docs/metric.md): Track field-level and table-level metrics over time with anomaly detection or fixed thresholds.
+- [Comparison Monitor](https://docs.getmontecarlo.com/docs/metric-comparison.md): Compare metrics across two data sources and alert when differences exceed thresholds.
+- [Bulk Monitor](https://docs.getmontecarlo.com/docs/bulk-monitor.md): Apply field-level monitoring rules across many tables at once.
+- [Validation Monitors](https://docs.getmontecarlo.com/docs/mac-validation-monitors.md): Enforce row-level data quality rules and custom SQL checks with Monitors as Code.
+- [Validation Monitor](https://docs.getmontecarlo.com/docs/validation.md): Row-level data quality assertions that flag invalid rows.
+- [Custom SQL Monitor](https://docs.getmontecarlo.com/docs/custom-sql.md): Run any SQL query on a schedule and alert when the result crosses a threshold.
+- [Job Monitors](https://docs.getmontecarlo.com/docs/mac-job-monitors.md): Detect query runtime regressions with Monitors as Code.
+- [Query Performance Monitor](https://docs.getmontecarlo.com/docs/query-performance.md): Monitor query runtime performance and alert on regressions.
+- [Deprecated Monitors](https://docs.getmontecarlo.com/docs/mac-deprecated-monitors.md): Migration guides for deprecated Monitors as Code monitor types.
+- [Freshness (deprecated)](https://docs.getmontecarlo.com/docs/mac-deprecated-freshness.md): Deprecated freshness rule. Use table monitors or metric monitors instead.
+- [Volume (deprecated)](https://docs.getmontecarlo.com/docs/mac-deprecated-volume.md): Deprecated. The volume YAML key still works but only accepts the current metric monitor schema. Use table or metric monitors instead.
+- [Field Health (deprecated)](https://docs.getmontecarlo.com/docs/field-health.md): Blocked since March 2025. Use metric monitors instead.
+- [Field Quality (deprecated)](https://docs.getmontecarlo.com/docs/field-quality.md): Auto-converted to custom_sql as of August 2025. Old schema no longer works.
+- [Comparison (deprecated)](https://docs.getmontecarlo.com/docs/comparison.md): Blocked — creation disabled. Use metric_comparison instead.
+- [CI/CD Integration](https://docs.getmontecarlo.com/docs/ci-cd-integration.md): Deploy monitors as code through your CI/CD pipeline.
+- [Generating MC monitors from dbt tests](https://docs.getmontecarlo.com/docs/generating-monte-carlo-monitors-from-dbt-tests.md)
+- [Notifications as Code](https://docs.getmontecarlo.com/docs/notifications-as-code-20.md)
+- [API](https://docs.getmontecarlo.com/docs/api.md)
+- [API Authentication](https://docs.getmontecarlo.com/docs/api-authentication.md)
+- [API Explorer](https://docs.getmontecarlo.com/docs/api-explorer-1.md)
+- [API Example Use Cases](https://docs.getmontecarlo.com/docs/api-example-use-cases.md)
+- [General](https://docs.getmontecarlo.com/docs/general.md)
+- [Integrations](https://docs.getmontecarlo.com/docs/integrations.md)
+- [Lineage](https://docs.getmontecarlo.com/docs/lineage.md)
+- [Monitors](https://docs.getmontecarlo.com/docs/monitors.md)
+- [Troubleshooting and FAQs: API](https://docs.getmontecarlo.com/docs/troubleshooting-and-faqs-api.md)
+- [CLI](https://docs.getmontecarlo.com/docs/using-the-cli.md): Monte Carlo's CLI. [Reference Guide](https://clidocs.getmontecarlo.com/)
+- [Secret management with the CLI](https://docs.getmontecarlo.com/docs/secret-management-with-the-cli.md)
+- [SDK](https://docs.getmontecarlo.com/docs/using-the-sdk.md)
+- [SQL Notebooks (public preview)](https://docs.getmontecarlo.com/docs/sql-notebooks.md): Interactive, cell-based SQL notebooks for data validation and exploration.
+- [MC Bridge (public preview)](https://docs.getmontecarlo.com/docs/mc-bridge.md): Local server that connects SQL Notebooks to your data warehouse.
+- [Validation Notebook Generation (public preview)](https://docs.getmontecarlo.com/docs/validation-notebook-generation.md): AI-powered generation of SQL validation notebooks for dbt changes.
+- [Overview](https://docs.getmontecarlo.com/docs/platform-architecture.md)
+- [Deployments](https://docs.getmontecarlo.com/docs/deployment-and-connecting.md)
+- [AWS: Data Store Deployment](https://docs.getmontecarlo.com/docs/direct-connection-with-an-aws-data-store.md): How-to create and register
+- [AWS: Agent Deployment](https://docs.getmontecarlo.com/docs/create-and-register-an-aws-agent.md): How-to create and register
+- [Azure: Data Store Deployment](https://docs.getmontecarlo.com/docs/create-and-register-an-azure-blob-data-store.md): How-to create and register
+- [Azure: Agent Deployment](https://docs.getmontecarlo.com/docs/create-and-register-an-azure-agent.md): How-to create and register
+- [GCP: Data Store Deployment](https://docs.getmontecarlo.com/docs/direct-connection-with-a-gcp-data-store.md): How-to create and register
+- [GCP: Agent Deployment](https://docs.getmontecarlo.com/docs/create-and-register-a-gcp-agent.md): How-to create and register
+- [Generic Agent Deployment (Public Preview)](https://docs.getmontecarlo.com/docs/generic-agent-platforms.md)
+- [Generic Agent: Docker Compose Deployment](https://docs.getmontecarlo.com/docs/docker-compose.md): Deploy the Generic Agent with Docker Compose
+- [Generic Agent: Kubernetes Deployment](https://docs.getmontecarlo.com/docs/kubernetes.md): Deploy the Generic Agent on any Kubernetes cluster
+- [Generic Agent: AWS EKS Deployment](https://docs.getmontecarlo.com/docs/aws-eks.md): Deploy the Generic Agent on AWS using EKS
+- [Generic Agent: Azure AKS Deployment](https://docs.getmontecarlo.com/docs/azure-aks.md): Deploy the Generic Agent on Azure using AKS
+- [Generic Agent: GCP GKE Deployment](https://docs.getmontecarlo.com/docs/gcp-gke.md): Deploy the Generic Agent on GCP using GKE
+- [Generic Agent: Object Storage](https://docs.getmontecarlo.com/docs/object-storage.md): Configure object storage for the Generic Agent on any platform
+- [Generic Agent: Secrets Management](https://docs.getmontecarlo.com/docs/secrets-management.md): Configure how the agent accesses secrets
+- [Generic Agent: Proxies and Traffic Inspection](https://docs.getmontecarlo.com/docs/proxies-and-traffic-inspection.md): Route agent traffic through a proxy or inspect HTTPS traffic
+- [Agent Service AWS PrivateLink](https://docs.getmontecarlo.com/docs/agent-service-aws-private-link.md)
+- [Agent Service Azure Private Link](https://docs.getmontecarlo.com/docs/agent-service-azure-private-link.md)
+- [Generic Agent: On-Premises Private Connectivity](https://docs.getmontecarlo.com/docs/on-prem-private-connectivity.md): Private connectivity options for on-premises deployments
+- [Agent Observability Data Platform](https://docs.getmontecarlo.com/docs/ao-platform-overview.md): Self-hosted data platform for Agent Observability — OpenTelemetry Collector and ClickHouse on EKS, AKS, or GKE, deployed with Terraform
+- [Agent Observability Platform: Deploy on AWS](https://docs.getmontecarlo.com/docs/ao-platform-aws.md): Deploy the Agent Observability data platform on AWS — prerequisites, installation, and connection guides
+- [Agent Observability Platform: Prerequisites (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-prerequisites-aws.md): What you need before deploying the Agent Observability data platform on AWS
+- [Agent Observability Platform: Installation (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-installation-aws.md): Configure and apply the Terraform module to deploy the platform on AWS
+- [Agent Observability Platform: Connect to Monte Carlo (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-connect-aws.md): Deploy the Monte Carlo Agent and connect the platform to Monte Carlo
+- [Agent Observability Platform: High Availability (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-high-availability-aws.md): How the clustered ClickHouse topology works on AWS — replicas, the Keeper ensemble, and day-2 operations
+- [Agent Observability Platform: Configuration Reference (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-configuration-aws.md): Optional configuration on AWS — TLS, retention, ClickHouse users, S3 ingest, and sizing
+- [Agent Observability Platform: Self-Managed Helm Install (AWS)](https://docs.getmontecarlo.com/docs/ao-platform-self-managed-helm-aws.md): Advanced: provision AWS infrastructure with Terraform and manage the Helm release yourself
+- [Agent Observability Platform: Deploy on Azure](https://docs.getmontecarlo.com/docs/ao-platform-azure.md): Deploy the Agent Observability data platform on Azure — prerequisites, installation, and connection guides
+- [Agent Observability Platform: Prerequisites (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-prerequisites-azure.md): What you need before deploying the Agent Observability data platform on Azure
+- [Agent Observability Platform: Installation (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-installation-azure.md): Deploy the Agent Observability data platform on Azure with Terraform
+- [Agent Observability Platform: Connect to Monte Carlo (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-connect-azure.md): Connect your Azure Agent Observability data platform to Monte Carlo
+- [Agent Observability Platform: High Availability (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-high-availability-azure.md): How the Agent Observability data platform runs highly available on Azure
+- [Agent Observability Platform: Configuration Reference (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-configuration-azure.md): Configuration reference for the Agent Observability data platform on Azure
+- [Agent Observability Platform: Self-Managed Helm Install (Azure)](https://docs.getmontecarlo.com/docs/ao-platform-self-managed-helm-azure.md): Install the Agent Observability data platform Helm chart yourself on Azure
+- [Agent Observability Platform: Deploy on GCP](https://docs.getmontecarlo.com/docs/ao-platform-gcp.md): Deploy the Agent Observability data platform on GCP — prerequisites, installation, and connection guides
+- [Agent Observability Platform: Prerequisites (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-prerequisites-gcp.md): What you need before deploying the Agent Observability data platform on GCP
+- [Agent Observability Platform: Installation (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-installation-gcp.md): Deploy the Agent Observability data platform on GCP with Terraform
+- [Agent Observability Platform: Connect to Monte Carlo (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-connect-gcp.md): Connect your GCP Agent Observability data platform to Monte Carlo
+- [Agent Observability Platform: High Availability (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-high-availability-gcp.md): How the Agent Observability data platform runs highly available on GCP
+- [Agent Observability Platform: Configuration Reference (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-configuration-gcp.md): Configuration reference for the Agent Observability data platform on GCP
+- [Agent Observability Platform: Self-Managed Helm Install (GCP)](https://docs.getmontecarlo.com/docs/ao-platform-self-managed-helm-gcp.md): Install the Agent Observability data platform Helm chart yourself on GCP
+- [Agent Observability Platform: Troubleshooting & FAQ](https://docs.getmontecarlo.com/docs/ao-platform-troubleshooting-faq.md): Common issues and questions when deploying and running the Agent Observability data platform
+- [Network Connectivity](https://docs.getmontecarlo.com/docs/networking.md)
+- [AWS PrivateLink](https://docs.getmontecarlo.com/docs/aws-private-link.md)
+- [AWS Endpoint Services](https://docs.getmontecarlo.com/docs/aws-endpoint-services.md): Creating an endpoint service
+- [Azure Private Link](https://docs.getmontecarlo.com/docs/azure-private-link.md)
+- [Data Collector](https://docs.getmontecarlo.com/docs/data-collector.md)
+- [Upgrading the Collector](https://docs.getmontecarlo.com/docs/upgrading-the-data-collector.md)
+- [Agent Management](https://docs.getmontecarlo.com/docs/agent-resources.md)
+- [Rotating Keys](https://docs.getmontecarlo.com/docs/rotating-keys.md)
+- [Snowflake Native App](https://docs.getmontecarlo.com/docs/sna-agent-deployment.md)
+- [Platform Migrations](https://docs.getmontecarlo.com/docs/platform-updates.md): Platform Migrations and Updates
+- [Migrating from a Remote Data Collector](https://docs.getmontecarlo.com/docs/migrating-from-a-remote-data-collector.md)
+- [Self Hosted Credentials with the Agent (public preview)](https://docs.getmontecarlo.com/docs/self-hosted-credentials.md)
+- [Connection Auth Rules (Private Preview)](https://docs.getmontecarlo.com/docs/connection-auth-rules.md)
+- [Agent with OpenTelemetry Collector](https://docs.getmontecarlo.com/docs/agent-with-open-telemetry-collector.md): How-to create and register the Monte Carlo Agent with the OpenTelemetry Collector
+- [AWS: CloudFormation Deployment](https://docs.getmontecarlo.com/docs/create-aws-agent-with-otel-collector-cf.md): How-to create and register the Monte Carlo Agent with the OpenTelemetry Collector on AWS using CloudFormation
+- [AWS: Terraform Deployment](https://docs.getmontecarlo.com/docs/create-aws-agent-with-otel-collector-terraform.md): How-to create and register the Monte Carlo Agent with the OpenTelemetry Collector on AWS using Terraform
+- [AWS: Databricks Configuration](https://docs.getmontecarlo.com/docs/aws-databricks-configuration-example.md): How-to configure Databricks for OpenTelemetry instrumentation collection
+- [AWS: Athena Configuration](https://docs.getmontecarlo.com/docs/aws-athena-configuration.md): How-to configure Athena for OpenTelemetry instrumentation collection
+- [AWS: Snowflake Configuration](https://docs.getmontecarlo.com/docs/configure-snowflake-otel-collector.md): How-to configure Snowflake for OpenTelemetry instrumentation collection
+- [GCP: Terraform Deployment](https://docs.getmontecarlo.com/docs/gcp-terraform-deployment.md): How-to create and register the Monte Carlo Agent with the OpenTelemetry Collector on GCP using Terraform
+- [GCP: BigQuery Configuration](https://docs.getmontecarlo.com/docs/gcp-bigquery-configuration.md): How-to configure BigQuery for OpenTelemetry instrumentation collection
+- [Open Telemetry Data Store](https://docs.getmontecarlo.com/docs/open-telemetry-data-store.md): How-to create and register an OpenTelemetry data store
+- [AWS: CloudFormation Deployment](https://docs.getmontecarlo.com/docs/aws-cloudformation-deployment.md): How-to create and register an OpenTelemetry data store on AWS using CloudFormation
+- [AWS: Terraform Deployment](https://docs.getmontecarlo.com/docs/aws-terraform-deployment.md): How-to create and register an OpenTelemetry data store on AWS using Terraform
+- [Advanced Usage](https://docs.getmontecarlo.com/docs/advanced-usage.md)
+- [PII Filtering](https://docs.getmontecarlo.com/docs/pii-filtering.md): Introduced in: CLI v0.39.0, pycarlo v0.4.0, Data Collector v13075
+- [Audit Logging](https://docs.getmontecarlo.com/docs/audit-logging.md)
+- [Network Access Control](https://docs.getmontecarlo.com/docs/network-access-control.md)
+- [Configuring Data Sampling](https://docs.getmontecarlo.com/docs/configure-data-sampling.md)
+- [Session Configuration](https://docs.getmontecarlo.com/docs/session-config.md)
+- [Overview](https://docs.getmontecarlo.com/docs/security-compliance-overview.md)
+- [Common Security Evaluation Questions](https://docs.getmontecarlo.com/docs/common-security-evaluation-questions.md)
+- [Access Management](https://docs.getmontecarlo.com/docs/access-management.md)
+- [Data Protection and Encryption](https://docs.getmontecarlo.com/docs/data-protection-and-encryption.md)
+- [Security](https://docs.getmontecarlo.com/docs/security.md)
+- [Infrastructure Security](https://docs.getmontecarlo.com/docs/infrastructure-security.md)
+- [Application Security](https://docs.getmontecarlo.com/docs/application-security.md)
+- [AI Security & Governance](https://docs.getmontecarlo.com/docs/ai-security.md)
+- [LLM Training & Observability](https://docs.getmontecarlo.com/docs/llm-training-observability.md)
+- [Vulnerability Disclosure Policy](https://docs.getmontecarlo.com/docs/vulnerability-disclosure-policy.md)
+- [Compliance](https://docs.getmontecarlo.com/docs/compliance.md)
+- [Privacy](https://docs.getmontecarlo.com/docs/privacy.md)
+- [Subprocessors](https://docs.getmontecarlo.com/docs/subprocessors-vendors.md)
+- [Information Monte Carlo Collects](https://docs.getmontecarlo.com/docs/info-monte-carlo-collects.md)
+- [Data Sampling](https://docs.getmontecarlo.com/docs/data-sampling.md)
+- [Customer Support AI Use at Monte Carlo](https://docs.getmontecarlo.com/docs/external-ai-use-at-monte-carlo.md)
+- [Hosting & Architecture Options](https://docs.getmontecarlo.com/docs/hosting-architecture-options.md)
+- [Regional Hosting](https://docs.getmontecarlo.com/docs/regional-hosting.md)
+- [EU Regional Hosting](https://docs.getmontecarlo.com/docs/eu-regional-hosting.md)
+- [EU Regional Hosting - Technical Specs](https://docs.getmontecarlo.com/docs/eu-regional-hosting-technical-specs.md)
+- [Dedicated Instance](https://docs.getmontecarlo.com/docs/dedicated-instance.md)
+- [Dedicated Instance - Disaster Recovery](https://docs.getmontecarlo.com/docs/dedicated-instance-disaster-recovery.md)
+- [AI Agents - AI Features & Technical Info](https://docs.getmontecarlo.com/docs/ai-features-and-technical-info.md)
+- [AI Agents - Architecture & Data Handling](https://docs.getmontecarlo.com/docs/ai-architecture-data-handling.md)
+- [AI Agents - Technical Specs](https://docs.getmontecarlo.com/docs/ai-technical-specs.md)
+- [Monte Carlo MCP Server Technical Overview](https://docs.getmontecarlo.com/docs/monte-carlo-mcp-server-technical-overview.md)
+- [Chargebacks](https://docs.getmontecarlo.com/docs/chargebacks.md)
+- [Consumption of Monte Carlo credits](https://docs.getmontecarlo.com/docs/consumption-of-mc-credits.md)
+- [Consumption of warehouse resources](https://docs.getmontecarlo.com/docs/consumption-of-warehouse-resources.md)
+- [Integration & Feature Lifecycles](https://docs.getmontecarlo.com/docs/integration-feature-lifecycles.md)
+- [Monte Carlo at a Glance](https://docs.getmontecarlo.com/docs/monte-carlo-at-a-glance.md)
+- [📝 Monte Carlo 101 Certification](https://docs.getmontecarlo.com/docs/monte-carlo-101-certification.md)
+- [Access Troubleshooting](https://docs.getmontecarlo.com/docs/access-troubleshooting.md): Diagnose and resolve common login, SSO, invite, and access errors in Monte Carlo.
+- [Getting Started | MC University](https://docs.getmontecarlo.com/docs/welcome.md)
+- [🧑‍🎓 Assets](https://docs.getmontecarlo.com/docs/what-is-an-asset.md)
+- [🧑‍🎓 Lineage](https://docs.getmontecarlo.com/docs/mcu-lineage.md)
+- [🧑‍🎓 Freshness Monitor](https://docs.getmontecarlo.com/docs/mcu-freshness.md)
+- [🧑‍🎓 Volume Monitor](https://docs.getmontecarlo.com/docs/mcu-volume.md)
+- [🧑‍🎓 Schema Monitor](https://docs.getmontecarlo.com/docs/mcu-schema.md)
+- [🧑‍🎓 Metric Monitor](https://docs.getmontecarlo.com/docs/mcu-metric-monitor.md)
+- [🧑‍🎓 SQL Monitors](https://docs.getmontecarlo.com/docs/sql-monitors.md)
+- [🧑‍🎓 Comparison Rules](https://docs.getmontecarlo.com/docs/mcu-comparison-rules.md)
+- [🧑‍🎓 Monitors as Code](https://docs.getmontecarlo.com/docs/mcu-monitors-as-code.md)
+- [🧑‍🎓 Validation Monitor](https://docs.getmontecarlo.com/docs/validation-monitor.md)
+- [JSON Schema Monitors](https://docs.getmontecarlo.com/docs/json-schema-monitor.md)
+- [🧑‍🎓 Query Performance Monitor](https://docs.getmontecarlo.com/docs/query-performance-monitor.md)
+- [🧑‍🎓 Monitoring Agent](https://docs.getmontecarlo.com/docs/monitoring-agent.md)
+- [🧑‍🎓 Data Products](https://docs.getmontecarlo.com/docs/data-products.md)
+- [🧑‍🎓 Data Profiler](https://docs.getmontecarlo.com/docs/data-profiler.md)
+- [🧑‍🎓 Warehouse Navigation](https://docs.getmontecarlo.com/docs/warehouse-navigation.md)
+- [🧑‍🎓 Key Assets](https://docs.getmontecarlo.com/docs/mcu-key-assets.md)
+- [🧑‍🎓 Domains](https://docs.getmontecarlo.com/docs/mcu-domains.md)
+- [🧑‍🎓 Alert Feed](https://docs.getmontecarlo.com/docs/mcu-alert-feed.md)
+- [🧑‍🎓 Incident Management Overview](https://docs.getmontecarlo.com/docs/incident-management.md)
+- [🧑‍🎓 Status Updates](https://docs.getmontecarlo.com/docs/status-updates.md)
+- [🧑‍🎓 Integrating Airflow](https://docs.getmontecarlo.com/docs/mcu-integrating-airflow.md)
+- [🧑‍🎓 Notifications as Code](https://docs.getmontecarlo.com/docs/mcu-notifications-as-code.md)
+- [🧑‍🎓 Triaging Notifications](https://docs.getmontecarlo.com/docs/mcu-triage-notifications.md)
+- [🧑‍🎓 Circuit Breakers](https://docs.getmontecarlo.com/docs/mcu-circuit-breakers.md)
+- [🧑‍🎓 Monte Carlo Python SDK](https://docs.getmontecarlo.com/docs/mcu-monte-carlo-python-sdk.md)
+- [🧑‍🎓 Resolving Notifications](https://docs.getmontecarlo.com/docs/resolve-notifications.md)
+- [🧑‍🎓 Usage Management](https://docs.getmontecarlo.com/docs/mcu-usage-management.md)
+- [🧑‍🎓 Performance](https://docs.getmontecarlo.com/docs/mcu-performance.md)
+- [🧑‍🎓 Exclusion Windows](https://docs.getmontecarlo.com/docs/mcu-exclusion-windows.md)
+- [🧑‍🎓 Monitor Templates](https://docs.getmontecarlo.com/docs/monitor-templates.md)
+- [🧑‍🎓 Monitor Tags & Dimensions](https://docs.getmontecarlo.com/docs/monitor-tags-dimensions.md)
+- [🧑‍🎓 Data Quality Dashboard](https://docs.getmontecarlo.com/docs/data-quality-dashboard.md)
+- [🧑‍🎓 Data Operations Dashboard](https://docs.getmontecarlo.com/docs/mcu-data-operations-dashboard.md)
+- [🧑‍🎓 Table Health Dashboard](https://docs.getmontecarlo.com/docs/mcu-table-health-dashboard.md)
+- [🧑‍🎓 Monte Carlo API](https://docs.getmontecarlo.com/docs/mcu-monte-carlo-api.md)
+- [🧑‍🎓 SSO, User Groups and Permissions](https://docs.getmontecarlo.com/docs/mcu-sso-user-groups-and-permissions.md)
+- [🧑‍🎓 Billing Page](https://docs.getmontecarlo.com/docs/billing-page.md)
+- [🧑‍🎓 User Profiles and Email Digest](https://docs.getmontecarlo.com/docs/user-profiles.md)
+- [Monte Carlo Mastery Series](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-series.md)
+- [🧑‍🎓 How To Avoid Alert Fatigue & Manage Incidents Effectively](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-how-to-avoid-alert-fatigue-manage-incidents-effectively.md)
+- [🧑‍🎓 Creating an Alert Strategy that Guarantees Action](https://docs.getmontecarlo.com/docs/creating-an-alert-strategy-that-guarantees-action.md)
+- [🧑‍🎓 Creating a Proactive Monitoring Strategy with Monte Carlo](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-proactive-monitoring-strategy.md)
+- [🧑‍🎓 How to Scale Data Quality with Data Observability + Data Testing](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-how-to-scale-data-quality-with-data-observability-data-testing.md)
+- [🧑‍🎓 Setting Up Your Monitoring Strategy for Maximum Impact](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-setting-up-your-monitoring-strategy-for-maximum-impact.md)
+- [🧑‍🎓 How to Optimize Cost, Stakeholder Experience and Data Trust with Performance](https://docs.getmontecarlo.com/docs/monte-carlo-mastery-how-to-optimize-cost-stakeholder-experience-and-data-trust-with-performance.md)
+- [🧑‍🎓 Optimize Data Quality for Key Assets with Data Products](https://docs.getmontecarlo.com/docs/how-to-optimize-data-quality-for-key-assets-with-data-products.md)
+- [🧑‍🎓 How to Roll Out Data Observability to Your Organization](https://docs.getmontecarlo.com/docs/how-to-roll-out-data-observability-to-your-organization.md)
+
+## Recipes
+- [Bulk Upload Field Tags](https://docs.getmontecarlo.com/recipes/bulk-upload-field-tags.md)
+- [Create Access Token](https://docs.getmontecarlo.com/recipes/create-access-token.md)
+- [Create Domain-based Authorization Group via API](https://docs.getmontecarlo.com/recipes/create-domain-based-authorization-group-via-api.md)
+- [Creating Domains via API](https://docs.getmontecarlo.com/recipes/creating-domains-via-api.md)
+- [Delete Access Token](https://docs.getmontecarlo.com/recipes/delete-access-token.md)
+- [Mute Data Assets using Regex](https://docs.getmontecarlo.com/recipes/mute-data-assets-using-regex.md)
+- [Retrieve existing Domain Names and UUIDs](https://docs.getmontecarlo.com/recipes/retrieve-existing-domain-names-and-uuids.md)
+
+## Changelog
+- [**Monte Carlo AI is now a full data helpdesk in Slack**](https://docs.getmontecarlo.com/changelog/monte-carlo-ai-is-now-a-full-data-helpdesk-in-slack.md)
+- [Automatic Triage is now enabled by default](https://docs.getmontecarlo.com/changelog/automatic-triage-is-now-enabled-for-all-accounts.md)
+- [Oracle thick mode support](https://docs.getmontecarlo.com/changelog/oracle-thick-mode-support.md)
+- [Network Access Controls are now manageable in the UI](https://docs.getmontecarlo.com/changelog/network-access-controls-are-now-manageable-in-the-ui.md)
+- [SSO Lockout Recovery](https://docs.getmontecarlo.com/changelog/sso-lockout-recovery.md)
+- [Domain filter on the Alerts page](https://docs.getmontecarlo.com/changelog/domain-filter-on-the-alerts-page.md)
+- [Trigger-based monitor schedules can now run trigger-only](https://docs.getmontecarlo.com/changelog/trigger-based-monitor-schedules-can-now-run-trigger-only.md)
+- [Automatic Conversation Clustering now available for Snowflake Cortex and Databricks Genie agents](https://docs.getmontecarlo.com/changelog/automatic-conversation-clustering-now-available-for-snowflake-cortex-and-databricks-genie-agents.md)
+- [OAuth 2.0 Support for the API, SDK, and CLI](https://docs.getmontecarlo.com/changelog/oauth-20-support-for-the-api-sdk-and-cli.md)
+- [Alert grouping by status](https://docs.getmontecarlo.com/changelog/alert-grouping-by-status.md)

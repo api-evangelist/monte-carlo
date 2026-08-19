@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "be1d716b-f452-4280-8712-437afbf1d696",
+      "name": "Graphql",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06669150-4b78-45b3-ad6a-84d3fd3fc7d8",
+          "name": "GraphQL endpoint",
+          "request": {
+            "name": "GraphQL endpoint",
+            "description": {
+              "content": "Execute a GraphQL query or mutation against Monte Carlo. Common\noperations include `getUser`, `getTables`, `getMonitor`,\n`getIncidents`, and `createOrUpdateMonitor`. To discover the exact\noperations powering a given Monte Carlo UI view, inspect the network\nrequests issued by that page.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"variables\": {\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  },\n  \"operationName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9dd5b12d-2899-427a-8c9a-46fd7462f056",
+              "name": "GraphQL response (data and/or errors)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-mcd-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"query { getUser { email firstName lastName } }\\n\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": 6066.098495274147\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"extensions\": {\n        \"key_0\": 976\n      }\n    },\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"extensions\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cf4651c-edaa-4c85-974f-ab2728a6a656",
+              "name": "Missing or invalid API key headers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-mcd-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"query { getUser { email firstName lastName } }\\n\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getmontecarlo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-mcd-id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fdec74df-35d9-4324-bd2b-ec40d6aea218",
+    "name": "Monte Carlo Graphql API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Monte Carlo exposes a single GraphQL endpoint at\n`https://api.getmontecarlo.com/graphql` that backs the same operations\nused by the Monte Carlo UI. Every piece of data shown in the UI can be\nretrieved or mutated through this endpoint — monitors, incidents, alerts,\nassets, lineage, custom rules, warehouses, lakes, metastores, audit logs,\ntags, and the data catalog.\n\nAuthentication uses an account or personal API Key ID and Secret sent via\nthe `x-mcd-id` and `x-mcd-token` headers. Keys are generated from 42\ncryptographically secure random bytes, base64-encoded to a 56-character\nstring; only Account Owners can create account-level keys.\n\n\nContact Support:\n Name: Monte Carlo",
+      "type": "text/plain"
+    }
+  }
+}
