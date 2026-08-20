@@ -75,6 +75,8 @@ apis:
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
+  - GraphQL
+  tags_raw:
   - Graphql
   properties:
   - type: OpenAPI
