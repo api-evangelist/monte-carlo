@@ -11,6 +11,18 @@ description: >-
   integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
   Authentication uses an API Key ID and Token pair sent via headers.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
