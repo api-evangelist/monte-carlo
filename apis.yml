@@ -1,14 +1,10 @@
 aid: monte-carlo
 name: Monte Carlo
-description: >-
-  Monte Carlo is a data and AI observability platform that monitors data
-  warehouses, lakes, and pipelines for freshness, volume, schema, and quality
-  anomalies, helping data teams detect, resolve, and prevent data downtime
-  across Snowflake, Databricks, BigQuery, Redshift, and other modern data
-  stack tools. Monte Carlo exposes a GraphQL API at
-  https://api.getmontecarlo.com/graphql used for programmatic access to
-  monitors, incidents, lineage, assets, alerts, custom rules, and lake/metastore
-  integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
+description: Monte Carlo is a data and AI observability platform that monitors data warehouses, lakes, and pipelines
+  for freshness, volume, schema, and quality anomalies, helping data teams detect, resolve, and prevent data downtime
+  across Snowflake, Databricks, BigQuery, Redshift, and other modern data stack tools. Monte Carlo exposes a GraphQL
+  API at https://api.getmontecarlo.com/graphql used for programmatic access to monitors, incidents, lineage, assets,
+  alerts, custom rules, and lake/metastore integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo).
   Authentication uses an API Key ID and Token pair sent via headers.
 type: Index
 deliveryModel:
@@ -25,15 +21,16 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/monte-carlo.png
 tags:
@@ -45,19 +42,16 @@ tags:
 - Lineage
 - Monitoring
 - AI Observability
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.23'
 apis:
 - aid: monte-carlo:graphql-api
   name: Monte Carlo GraphQL API
-  description: >-
-    GraphQL API for the Monte Carlo data observability platform. Provides programmatic access to monitors,
-    incidents, assets, lineage, custom rules, warehouses, lakes, metastores, and alerts. Authentication
-    uses an account or personal API Key ID and Token sent via the x-mcd-id and x-mcd-token headers (or
-    as a Bearer token).
+  description: GraphQL API for the Monte Carlo data observability platform. Provides programmatic access to monitors,
+    incidents, assets, lineage, custom rules, warehouses, lakes, metastores, and alerts. Authentication uses an
+    account or personal API Key ID and Token sent via the x-mcd-id and x-mcd-token headers (or as a Bearer token).
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
@@ -93,6 +87,49 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/monte-carlo-graphql-api-openapi.yml
+- aid: monte-carlo:push-ingest-api
+  name: Monte Carlo Push Ingest API
+  description: A REST write API for pushing observability data into Monte Carlo from sources its pull-based collectors
+    cannot reach. Three endpoints — POST /ingest/v1/metadata (table and view schema, columns, row and byte counts,
+    freshness), POST /ingest/v1/lineage (table- and column-level lineage) and POST /ingest/v1/querylogs (SQL query
+    history) — each returning 202 Accepted with an invocation_id. Requires a dedicated Ingestion-scoped integration
+    key; standard API keys are rejected. Public preview, Enterprise plan or higher.
+  humanURL: https://docs.getmontecarlo.com/docs/push-ingest-api
+  baseURL: https://integrations.getmontecarlo.com
+  tags:
+  - Data Observability
+  - Data Lineage
+  - Ingest
+  properties:
+  - type: Documentation
+    url: https://docs.getmontecarlo.com/docs/push-ingest-api
+  - type: ErrorCatalog
+    url: errors/monte-carlo-data-problem-types.yml
+- aid: monte-carlo:mcp-server
+  name: Monte Carlo MCP Server
+  description: A first-party, fully hosted Model Context Protocol server that gives AI agents direct access to Monte
+    Carlo — investigating alerts, exploring assets and lineage, creating and tuning monitors, and evaluating AI
+    agent performance. 56 documented tools across three toolsets (default, extended, agent_observability) plus four
+    published MCP prompts. Reached over streamable HTTP with OAuth 2.1 and dynamic client registration, or with
+    MCP-scoped keys; also shipped as an Anthropic-verified connector in the Claude Connectors Directory. Runs on
+    AWS Lambda, stateless, executing under the calling user's Monte Carlo identity.
+  humanURL: https://docs.getmontecarlo.com/docs/mcp-server
+  baseURL: https://mcp.getmontecarlo.com/mcp
+  tags:
+  - MCP
+  - Agent Observability
+  - AIOps
+  tags_raw:
+  - Model Context Protocol
+  - Agent Observability
+  - AIOps
+  properties:
+  - type: MCPServer
+    url: mcp/monte-carlo-data-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/monte-carlo-data-tool-crosswalk.yml
+  - type: Documentation
+    url: https://docs.getmontecarlo.com/docs/mcp-server
 common:
 - type: AgenticAccess
   url: agentic-access/monte-carlo-agentic-access.yml
@@ -114,11 +151,12 @@ common:
   url: https://www.montecarlodata.com/pricing/
 - type: Signup
   url: https://www.montecarlodata.com/request-a-demo/
-
 - type: LlmsText
   url: https://docs.getmontecarlo.com/llms.txt
 - url: https://montecarlodata.com/blog/feed/
   type: Blog
+- type: APIReference
+  url: https://apidocs.getmontecarlo.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
