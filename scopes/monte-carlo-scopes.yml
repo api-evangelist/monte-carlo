@@ -1,0 +1,31 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/api-authentication
+docs: https://docs.getmontecarlo.com/docs/api-authentication#authenticating-with-oauth-client-credentials
+authorization_servers:
+- issuer: https://auth.getmontecarlo.com
+  metadata: https://auth.getmontecarlo.com/.well-known/oauth-authorization-server
+- token_url: https://api.getmontecarlo.com/oauth2/token
+  note: Token URL shown for OAuth client-credentials clients of the GraphQL API.
+scopes:
+- scope: https://api.getmontecarlo.com/access
+  api: monte-carlo:graphql-api
+  description: API access scope requested in the client-credentials grant.
+- scope: https://instance.getmontecarlo.com/{instance_id}
+  api: monte-carlo:graphql-api
+  description: Instance-routing scope naming the deployment (e.g. us1, eu1); requested together with the access scope.
+- scope: offline_access
+  api: monte-carlo:mcp-server
+  description: Only scope advertised by the MCP protected-resource metadata; issues refresh tokens.
+- scope: openid
+  api: auth
+  description: Advertised by auth.getmontecarlo.com.
+- scope: profile
+  api: auth
+  description: Advertised by auth.getmontecarlo.com.
+- scope: email
+  api: auth
+  description: Advertised by auth.getmontecarlo.com.
+permissions_note: >-
+  Fine-grained access is governed by Monte Carlo roles and authorization groups rather than OAuth scopes
+  (e.g. lineage/read; MCP requires Editor or above). See https://docs.getmontecarlo.com/docs/authorization.

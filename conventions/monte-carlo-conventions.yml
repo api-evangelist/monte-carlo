@@ -1,0 +1,66 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/api
+related:
+  authentication: authentication/monte-carlo-authentication.yml
+  errors: errors/monte-carlo-problem-types.yml
+  lifecycle: lifecycle/monte-carlo-lifecycle.yml
+  rate_limits: rate-limits/monte-carlo-rate-limits.yml
+style:
+  graphql: Single GraphQL endpoint https://api.getmontecarlo.com/graphql backing every UI view; any UI query can be reproduced by inspecting the page's network requests.
+  rest: Push Ingest API — three POST endpoints under https://integrations.getmontecarlo.com/ingest/v1/, asynchronous, 202 Accepted.
+auth:
+  style: "paired headers `x-mcd-id` + `x-mcd-token`, or `Authorization: Bearer <JWT>` from an OAuth 2.0 client-credentials grant"
+  docs: https://docs.getmontecarlo.com/docs/api-authentication
+idempotency:
+  coverage: none
+  header: null
+  note: >-
+    No idempotency key or replay protection is documented for the GraphQL API or the Push Ingest API.
+    Several GraphQL mutations are create-or-update upserts (e.g. createOrUpdateMonitor) addressed by uuid,
+    which makes repeat writes converge but is not a documented replay guarantee.
+pagination:
+  style: cursor (Relay connections)
+  params: [first, after]
+  response_fields: [edges, node, pageInfo.hasNextPage, pageInfo.endCursor]
+  source: https://docs.getmontecarlo.com/docs/push-ingest-api#check-query-logs
+request_tracing:
+  field: invocation_id
+  note: Every Push Ingest request returns an invocation_id (per batch); quote it to support when data does not appear.
+async_processing:
+  metadata: a few minutes
+  table_lineage: seconds to a few minutes
+  column_lineage: a few minutes (expires after 10 days; table lineage never expires)
+  query_logs: 15-20 minutes (docs elsewhere say allow 45-60 minutes)
+  push_frequency: freshness and volume at most once per hour
+versioning:
+  graphql: unversioned, continuously deployed
+  rest: path version /ingest/v1/
+error_envelope:
+  graphql: GraphQL errors[] (message, path, extensions)
+  rest: status code + `details` for field-level validation errors
+rate_limit_signaling:
+  documented: false
+  note: Per-plan daily API call quotas are published; response headers are not.
+mcp_controls:
+  read_only_header: x-mcp-readonly
+  tool_allowlist_header: x-mcp-tools
+  toolset_header: x-mcd-toolset
+dry_run:
+  supported: partial
+  note: >-
+    The GraphQL query parseQueryForLogTypes previews which query-log dialect will parse a query before any
+    push; no general dry-run mode exists for writes. The MCP x-mcp-readonly header lets an agent observe
+    without write access.
+reversibility:
+  grade: documented
+  surfaces:
+  - write: Push Ingest metadata (push-ingested tables)
+    reversal: GraphQL mutation deletePushIngestedTables (max 1,000 MCONs per call; also removes lineage nodes)
+    window: null
+    docs: https://docs.getmontecarlo.com/docs/push-ingest-api#push-table-deletion
+  - write: MCP / GraphQL alert updates (status, owner, comments)
+    reversal: update_alert / set_alert_owner can set the value back
+    window: null
+    docs: https://docs.getmontecarlo.com/docs/mcp-server
+  note: No reversal window is stated anywhere in the docs; none is asserted here.

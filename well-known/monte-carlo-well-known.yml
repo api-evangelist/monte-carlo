@@ -1,0 +1,188 @@
+generated: '2026-09-19'
+method: probed
+source: anonymous GET of /.well-known/* on every host in apis.yml, the OpenAPI servers[], the docs host,
+  the rebranded website host and the authorization server named by the MCP protected-resource metadata
+note: 'montecarlodata.com and www.montecarlodata.com 301 to montecarlo.ai (rebrand); documents are recorded
+  on the host that served them. getmontecarlo.com (the app SPA) answers 200 text/html for several /.well-known
+  paths — those are SPA shells, recorded as misses. api.getmontecarlo.com, integrations.getmontecarlo.com
+  (except protected-resource) and apidocs.getmontecarlo.com answer 403 to every path.
+
+
+  MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s primary
+  hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed and
+  were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
+hosts:
+- host: montecarlo.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: monte-carlo-security.txt
+  - path: /.well-known/api-catalog
+    status: 200
+    file: monte-carlo-api-catalog.json
+    content_type: application/linkset+json (served without content-type)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: monte-carlo-ai-oauth-authorization-server.json
+    note: WordPress MCP OAuth server for the marketing site (scope mcp)
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: monte-carlo-ai-oauth-protected-resource.json
+    note: resource https://montecarlo.ai/wp-json/mcp/mcp-oauth-server
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.montecarlodata.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    note: redirects to https://montecarlo.ai/.well-known/security.txt
+  - path: /.well-known/api-catalog
+    status: 301
+    note: redirects to https://montecarlo.ai/.well-known/api-catalog
+- host: mcp.getmontecarlo.com
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    file: monte-carlo-mcp-oauth-protected-resource-mcp.json
+  - path: /.well-known/oauth-protected-resource/mcp/toolkit
+    status: 200
+    file: monte-carlo-mcp-toolkit-oauth-protected-resource.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: monte-carlo-mcp-oauth-protected-resource.json
+    note: names resource https://mcp.us1.getmontecarlo.com/mcp
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  path_echo_control: passed
+- host: auth.getmontecarlo.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: monte-carlo-auth-oauth-authorization-server.json
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: monte-carlo-auth-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  path_echo_control: passed
+- host: integrations.getmontecarlo.com
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: monte-carlo-integrations-oauth-protected-resource.json
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: api.getmontecarlo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: docs.getmontecarlo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: getmontecarlo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: SPA HTML shell - miss
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: SPA HTML shell - miss
+  - path: /.well-known/api-catalog
+    status: 200
+    note: SPA HTML shell - miss
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: apidocs.getmontecarlo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://mcp.getmontecarlo.com
+    path: /.well-known/oauth-protected-resource
+    file: monte-carlo-mcp-oauth-protected-resource.json
+  - host: https://auth.getmontecarlo.com
+    path: /.well-known/oauth-authorization-server
+    file: monte-carlo-auth-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host

@@ -1,0 +1,22 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/changelog
+scheme: dated-entries
+current_version: null
+note: >-
+  Continuous deployment SaaS; the platform changelog is dated but unversioned. The CLI (montecarlodata
+  0.175.0) and SDK (pycarlo 0.15.322) carry their own semver on PyPI. Entry types are the changelog's own
+  labels (added / improved).
+entries:
+- {date: '2026-09-09', type: added, breaking: false, title: Agent Observability access without access to raw agent content, url: 'https://docs.getmontecarlo.com/changelog/agent-observability-access-without-access-to-raw-agent-content'}
+- {date: '2026-09-09', type: added, breaking: false, title: 'Track agent performance across whole conversations, not single turns', url: 'https://docs.getmontecarlo.com/changelog/track-agent-performance-across-whole-conversations-not-single-turns'}
+- {date: '2026-09-09', type: added, breaking: false, title: Extend your Monte Carlo permissions to alert actions in Slack and Microsoft Teams, url: 'https://docs.getmontecarlo.com/changelog/extend-your-monte-carlo-permissions-to-alert-actions-in-slack-and-microsoft-teams'}
+- {date: '2026-09-09', type: added, breaking: false, title: Monitor Snowflake Cortex agents by version, url: 'https://docs.getmontecarlo.com/changelog/monitor-snowflake-cortex-agents-by-version'}
+- {date: '2026-09-09', type: added, breaking: false, title: "Monitor an agent's conversation clusters", url: 'https://docs.getmontecarlo.com/changelog/monitor-an-agents-conversation-clusters'}
+- {date: '2026-09-08', type: added, breaking: false, title: 'See what your Snowflake agents cost, everywhere you already see tokens', url: 'https://docs.getmontecarlo.com/changelog/see-what-your-snowflake-agents-cost-everywhere-you-already-see-tokens'}
+- {date: '2026-08-18', type: added, breaking: false, title: Monitor metadata fields can now be required at creation, url: 'https://docs.getmontecarlo.com/changelog/monitor-metadata-fields-can-now-be-required-at-creation',
+   highlights: [New GraphQL query getRequiredMonitorFields and mutation updateRequiredMonitorFields (PRIORITY, AUDIENCE, TAGS, DATA_QUALITY_DIMENSION).]}
+- {date: '2026-08-18', type: improved, breaking: false, title: Improvement to row counts for Custom SQL & Validation monitors on data lakes, url: 'https://docs.getmontecarlo.com/changelog/improvement-to-row-counts-for-custom-sql-validation-monitors-on-data-lakes',
+   highlights: [One-time step change in breach counts after enabling; expect extra alerts while thresholds re-baseline.]}
+- {date: '2026-08-12', type: added, breaking: false, title: Monte Carlo AI is now a full data helpdesk in Slack, url: 'https://docs.getmontecarlo.com/changelog/monte-carlo-ai-is-now-a-full-data-helpdesk-in-slack'}
+- {date: '2026-07-29', type: added, breaking: false, title: Automatic Triage is now enabled by default, url: 'https://docs.getmontecarlo.com/changelog/automatic-triage-is-now-enabled-for-all-accounts'}

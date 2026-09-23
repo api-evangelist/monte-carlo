@@ -1,0 +1,28 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://api.getmontecarlo.com/",
+      "service-doc": [
+        {
+          "href": "https://docs.getmontecarlo.com/",
+          "type": "text/html",
+          "title": "Monte Carlo API & Platform Documentation"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://docs.getmontecarlo.com/docs/using-the-api",
+          "type": "text/html",
+          "title": "Monte Carlo API Reference"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://status.getmontecarlo.com/",
+          "type": "text/html",
+          "title": "Monte Carlo Status Page"
+        }
+      ]
+    }
+  ]
+}

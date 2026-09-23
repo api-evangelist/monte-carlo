@@ -1,0 +1,8 @@
+Contact: security[at]montecarlodata.com
+Expires: 2030-01-01T00:00:00.000Z
+Acknowledgments: https://trust.montecarlodata.com
+Preferred-Languages: en
+Canonical: https://www.montecarlodata.com/.well-known/security.txt
+Hiring: https://jobs.ashbyhq.com/montecarlodata
+Encryption: openpgp4fpr:3F57A7AA4CF6D52B4EE1DDA6930DBFB5BA490678
+Policy: https://trust.montecarlodata.com/resources?s=3af5qmjupj7f127tt4i9ng&name=vulnerability-disclosure-policy

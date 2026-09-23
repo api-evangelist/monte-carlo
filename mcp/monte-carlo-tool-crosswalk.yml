@@ -1,0 +1,74 @@
+generated: '2026-09-16'
+method: derived
+source: mcp/monte-carlo-mcp.yml + openapi/monte-carlo-graph-ql-api-openapi.yml
+description: >-
+  Binds each published Monte Carlo MCP tool to the REST/GraphQL surface behind it. Monte Carlo's technical
+  overview states the MCP server executes every call under the user's identity against the GraphQL API
+  (https://docs.getmontecarlo.com/docs/monte-carlo-mcp-server-technical-overview), and the only REST
+  operation the OpenAPI describes is the single GraphQL transport operation POST /graphql (operationId
+  graphql). Every tool therefore binds to that one operation; the specific GraphQL query/mutation each tool
+  issues is not published and the live GraphQL + MCP schemas are both auth-gated, so bindings are by
+  architecture statement, not by field-level mapping.
+surfaces:
+  openapi:
+    path: openapi/monte-carlo-graph-ql-api-openapi.yml
+    operation: POST https://api.getmontecarlo.com/graphql (graphql)
+  graphql:
+    endpoint: https://api.getmontecarlo.com/graphql
+    reference: https://apidocs.getmontecarlo.com/
+    gated: true
+    note: Introspection requires an API key or OAuth client-credentials token.
+  mcp:
+    url: https://mcp.getmontecarlo.com/mcp
+    gated: true
+    note: tools/list returns 401 with an RFC 9728 challenge; tool names from the Claude Connectors Directory and docs.
+  push_ingest:
+    base: https://integrations.getmontecarlo.com
+    operations: [POST /ingest/v1/metadata, POST /ingest/v1/lineage, POST /ingest/v1/querylogs]
+    note: Documented REST write API with no OpenAPI in this repo and no MCP tool.
+crosswalk:
+  - {tool: get_alerts, category: alerts, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: update_alert, category: alerts, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: set_alert_owner, category: alerts, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_or_update_alert_comment, category: alerts, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: search, category: assets, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_table, category: assets, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_queries_for_table, category: assets, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_query_data, category: assets, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_asset_lineage, category: lineage, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_downstream_bi_reports, category: lineage, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_monitors, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low,
+     note: 'The OpenAPI example "getMonitors" names a GraphQL query of this name.'}
+  - {tool: get_audiences, category: notifications, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_validation_monitor_mac, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_metric_monitor_mac, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_comparison_monitor_mac, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_custom_sql_monitor_mac, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_or_update_table_monitor, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_use_cases, category: use-cases, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_use_case_table_summary, category: use-cases, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_use_case_tables, category: use-cases, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_custom_dashboard_widget, category: dashboards, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_domains, category: account, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_user, category: account, rest: [graphql], binding: graphql-backed, confidence: medium,
+     note: 'The OpenAPI example "getUser" issues query { getUser { ... } }.'}
+  - {tool: get_validation_predicates, category: monitors, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_agent_metadata, category: agent-observability, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_agent_conversation, category: agent-observability, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: get_agent_trace, category: agent-observability, rest: [graphql], binding: graphql-backed, confidence: low}
+  - {tool: create_agent_metric_monitor, category: agent-observability, rest: [graphql], binding: graphql-backed, confidence: low}
+mcp_only:
+  - {tool: alert_assessment, reason: 'Composite/AI assessment tool cited in the MCP docs; no documented GraphQL equivalent.'}
+  - {tool: test_connection, reason: MCP connectivity check with no API counterpart.}
+  - {tool: get_current_time, reason: Utility tool with no API counterpart.}
+rest_only:
+  - {operation: 'POST /ingest/v1/metadata', surface: push-ingest, reason: No MCP tool pushes metadata.}
+  - {operation: 'POST /ingest/v1/lineage', surface: push-ingest, reason: No MCP tool pushes lineage.}
+  - {operation: 'POST /ingest/v1/querylogs', surface: push-ingest, reason: No MCP tool pushes query logs.}
+coverage:
+  mcp_tools: 31
+  bound_to_openapi: 28
+  mcp_only: 3
+  openapi_operations: 1
+  openapi_operations_with_tool: 1
+  rest_only_documented_operations: 3

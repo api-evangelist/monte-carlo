@@ -1,0 +1,31 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/integration-feature-lifecycles
+versioning:
+  api: unversioned GraphQL endpoint (continuous deployment); REST push ingest is path-versioned (/ingest/v1/)
+  note: Updates are released continuously; notable changes are published in the changelog.
+  changelog: https://docs.getmontecarlo.com/changelog
+release_phases:
+- {name: Private preview, description: 'Invitation-only pre-release test; subject to pre-GA terms.'}
+- {name: Public preview, description: 'Widely available and generally production-ready, support fully available; functionality may still change.'}
+- {name: General Availability, description: Available to all customers and covered by SLAs where applicable.}
+preview_apis:
+- {api: monte-carlo:push-ingest-api, phase: public preview, source: 'https://docs.getmontecarlo.com/docs/push-ingest-api'}
+deprecation:
+  policy_url: https://docs.getmontecarlo.com/docs/mac-deprecated-monitors
+  note: >-
+    No API-wide deprecation policy or Sunset/Deprecation headers are documented. Monte Carlo publishes
+    dated deprecations for Monitors-as-Code monitor types with migration guides.
+  deprecated:
+  - {item: Field Health monitor, status: blocked since March 2025, replacement: metric monitors, url: 'https://docs.getmontecarlo.com/docs/field-health'}
+  - {item: Field Quality monitor, status: auto-converted to custom_sql as of August 2025, replacement: custom_sql, url: 'https://docs.getmontecarlo.com/docs/field-quality'}
+  - {item: Comparison monitor, status: creation disabled, replacement: metric_comparison, url: 'https://docs.getmontecarlo.com/docs/comparison'}
+  - {item: Freshness rule (MaC), status: deprecated, replacement: table or metric monitors, url: 'https://docs.getmontecarlo.com/docs/mac-deprecated-freshness'}
+  - {item: Volume rule (MaC), status: deprecated, replacement: table or metric monitors, url: 'https://docs.getmontecarlo.com/docs/mac-deprecated-volume'}
+  - {item: Tableau PAT integration, status: deprecated (CLI-only), replacement: Tableau Connected Apps, url: 'https://docs.getmontecarlo.com/docs/troubleshooting-and-faqs-tableau-deprecated'}
+  deprecated_operations: []
+status_page:
+  url: https://status.getmontecarlo.com/
+  source: https://montecarlo.ai/.well-known/api-catalog
+sla:
+  note: GA features covered by SLAs where applicable; support response SLAs per plan (24h Start, 8+h Scale, 4+h Enterprise) on https://montecarlo.ai/request-for-pricing/.

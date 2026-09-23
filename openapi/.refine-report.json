@@ -1,14 +1,25 @@
 {
   "provider": "monte-carlo",
   "sources": [
-    "monte-carlo-graphql-api-openapi.yml"
+    "_original/monte-carlo-openapi.yml"
   ],
   "outputs": [
     "monte-carlo-graphql-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "monte-carlo-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "monte-carlo-openapi.yml: tagged paths POST /graphql -> Graphql",
+    "monte-carlo-openapi.yml: declared missing tag: Graphql",
+    "superseded outputs removed: monte-carlo-graph-ql-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 4 total)"
+  ],
+  "skipped": [
+    "monte-carlo-graph-ql-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Monte Carlo Graphql API
   version: v1
@@ -6,24 +6,7 @@ info:
 
     `https://api.getmontecarlo.com/graphql` that backs the same operations
 
-    used by the Monte Carlo UI. Every piece of data shown in the UI can be
-
-    retrieved or mutated through this endpoint — monitors, incidents, alerts,
-
-    assets, lineage, custom rules, warehouses, lakes, metastores, audit logs,
-
-    tags, and the data catalog.
-
-
-    Authentication uses an account or personal API Key ID and Secret sent via
-
-    the `x-mcd-id` and `x-mcd-token` headers. Keys are generated from 42
-
-    cryptographically secure random bytes, base64-encoded to a 56-character
-
-    string; only Account Owners can create account-level keys.
-
-    '
+    used by the Monte Carlo UI.'
   contact:
     name: Monte Carlo
     url: https://docs.getmontecarlo.com/docs/api
@@ -33,7 +16,7 @@ servers:
 security:
 - mcdHeaders: []
 tags:
-- name: Graphql
+- name: Graph QL
 paths:
   /graphql:
     post:
@@ -47,9 +30,7 @@ paths:
 
         operations powering a given Monte Carlo UI view, inspect the network
 
-        requests issued by that page.
-
-        '
+        requests issued by that page.'
       requestBody:
         required: true
         content:
@@ -91,7 +72,7 @@ paths:
         '401':
           description: Missing or invalid API key headers
       tags:
-      - Graphql
+      - Graph QL
 components:
   schemas:
     GraphQLResponse:

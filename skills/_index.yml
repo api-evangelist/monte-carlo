@@ -1,0 +1,107 @@
+generated: '2026-09-16'
+method: searched
+source: https://github.com/monte-carlo-data/mc-agent-toolkit
+license: Apache-2.0
+commit: 8852e33311f62c6ffbb17af9d5c1ef2cfebf21b4
+note: Provider-published Agent Skills, saved verbatim (SKILL.md only; each skill's references/ and scripts/ stay
+  in the upstream repo). Installed as plugins for Claude Code, Codex, Cortex Code, Copilot and Cursor; the plugins
+  connect to https://mcp.getmontecarlo.com/mcp/toolkit.
+api: monte-carlo:mcp-server
+skills:
+- name: monte-carlo-analyze-root-cause
+  file: skills/monte-carlo-analyze-root-cause.md
+  description: Investigate data incidents and find root causes using Monte Carlo's
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/analyze-root-cause/SKILL.md
+- name: monte-carlo-asset-health
+  file: skills/monte-carlo-asset-health.md
+  description: Check the health of a data table/asset using Monte Carlo. Activates on "how is table X", "check health
+    of X", "is X healthy", "status of X", "check on X table", or any health/status question about a data asset.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/asset-health/SKILL.md
+- name: automated-triage
+  file: skills/monte-carlo-automated-triage.md
+  description: Triage Monte Carlo alerts interactively or build an automated workflow. Fetch, score, and troubleshoot
+    alerts using MCP tools now, or design a reusable workflow that runs on a schedule.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/automated-triage/SKILL.md
+- name: connection-auth-rules
+  file: skills/monte-carlo-connection-auth-rules.md
+  description: Build a Connection Auth Rules for a Monte Carlo connection type. Fetches live connector schemas and
+    transform steps from the apollo-agent repo.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/connection-auth-rules/SKILL.md
+- name: monte-carlo-context-detection
+  file: skills/monte-carlo-context-detection.md
+  description: Route data-related requests to the right Monte Carlo skill or workflow. USE WHEN alerts, incidents,
+    data broken, stale, coverage gaps, data quality, or any ambiguous data observability request.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/context-detection/SKILL.md
+- name: generate-validation-notebook
+  file: skills/monte-carlo-generate-validation-notebook.md
+  description: Generate SQL validation notebooks for dbt changes. Pass a GitHub PR URL or local dbt repo path.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/generate-validation-notebook/SKILL.md
+- name: monte-carlo-incident-response
+  file: skills/monte-carlo-incident-response.md
+  description: Orchestrate incident response — triage, root cause, remediate, prevent recurrence. USE WHEN active
+    alerts, data broken, stale, pipeline failure, or investigate and fix a data incident.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/incident-response/SKILL.md
+- name: monte-carlo-instrument-agent
+  file: skills/monte-carlo-instrument-agent.md
+  description: Instrument a new AI agent in a Python codebase for Monte Carlo Agent Observability. Detects AI libraries,
+    installs the Monte Carlo OpenTelemetry SDK, and proposes tracing setup and decorator placements as diffs. Asks
+    before editing any file.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/instrument-agent/SKILL.md
+- name: monte-carlo-manage-mac
+  file: skills/monte-carlo-manage-mac.md
+  description: Create, edit, validate, and import Monitors-as-Code YAML files. CLI-first; falls back to MC MCP tools,
+    then manual validation.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/manage-mac/SKILL.md
+- name: monte-carlo-monitoring-advisor
+  file: skills/monte-carlo-monitoring-advisor.md
+  description: Analyze data coverage, create monitors for warehouse tables and AI agents. Covers coverage gaps,
+    use-case analysis, data monitor creation, and agent observability.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/monitoring-advisor/SKILL.md
+- name: monte-carlo-performance-diagnosis
+  file: skills/monte-carlo-performance-diagnosis.md
+  description: Diagnoses pipeline performance issues -- slow jobs, expensive queries,
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/performance-diagnosis/SKILL.md
+- name: monte-carlo-prevent
+  file: skills/monte-carlo-prevent.md
+  description: Shift-left safety net for dbt/SQL model edits. Runs change impact assessment before edits, generates
+    SQL validation queries after, and executes them via `/mc-validate run`. Delegates health and monitor creation
+    to peer skills.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/prevent/SKILL.md
+- name: monte-carlo-proactive-monitoring
+  file: skills/monte-carlo-proactive-monitoring.md
+  description: Guide users from coverage analysis to monitor creation. USE WHEN user asks what should I monitor,
+    where are my gaps, improve coverage, or wants a systematic approach to monitoring across their data estate.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/proactive-monitoring/SKILL.md
+- name: push-ingestion
+  file: skills/monte-carlo-push-ingestion.md
+  description: 'Expert guide for Monte Carlo''s push ingestion model. Use this skill whenever a customer or engineer
+    mentions: pushing data to Monte Carlo, the IngestionService, pycarlo push APIs, build me a collection script,
+    push metadata/lineage/query logs, invocation_id tracing, custom lineage nodes or edges, de'
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/push-ingestion/SKILL.md
+- name: monte-carlo-reinforce-agent
+  file: skills/monte-carlo-reinforce-agent.md
+  description: Reinforces an AI agent by turning Monte Carlo's reinforcement loop diagnosis into code fixes.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/reinforce-agent/SKILL.md
+- name: monte-carlo-remediation
+  file: skills/monte-carlo-remediation.md
+  description: Investigate and remediate data quality alerts using Monte Carlo MCP tools. Runs root cause analysis,
+    assesses blast radius, discovers available tools (MCP/CLI/API), proposes and executes fixes, or escalates with
+    full context when uncertain.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/remediation/SKILL.md
+- name: monte-carlo-storage-cost-analysis
+  file: skills/monte-carlo-storage-cost-analysis.md
+  description: Analyze a warehouse for stale, unused, or redundant tables via the analyze_storage_costs MCP tool.
+    Classifies waste patterns and table categories, computes safety tiers, and handles category drill-downs and
+    lineage follow-ups.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/storage-cost-analysis/SKILL.md
+- name: monte-carlo-troubleshoot-agent-traces
+  file: skills/monte-carlo-troubleshoot-agent-traces.md
+  description: Troubleshoots Monte Carlo AI agent alerts and traces — eval score drops, latency/token spikes, trajectory
+    and validation breaches. Not for data incidents (monte-carlo-analyze-root-cause) or monitor creation (monte-carlo-monitoring-advisor).
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/troubleshoot-agent-traces/SKILL.md
+- name: tune-monitor
+  file: skills/monte-carlo-tune-monitor.md
+  description: Analyze a Monte Carlo monitor and recommend config changes to reduce alert noise. Supports metric,
+    custom SQL, validation, table, and agent (metric, evaluation, trajectory, validation) monitors. Fetches the
+    report, identifies patterns, and suggests tuning.
+  source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/skills/tune-monitor/SKILL.md

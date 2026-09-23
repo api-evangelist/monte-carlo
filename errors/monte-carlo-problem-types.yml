@@ -1,0 +1,80 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/push-ingest-api#error-codes
+format: custom
+envelope:
+  graphql: >-
+    GraphQL API (https://api.getmontecarlo.com/graphql) returns HTTP 200 with a standard GraphQL `errors[]`
+    array (message, path, extensions) alongside or instead of `data`; 401 when API key headers are missing
+    or invalid (openapi/monte-carlo-graph-ql-api-openapi.yml).
+  push_ingest: >-
+    Push Ingest API (https://integrations.getmontecarlo.com) returns 202 Accepted with {"invocation_id": "<uuid>"}
+    on success; validation failures carry field-level errors in a `details` member of the response body.
+    Not application/problem+json.
+apis:
+  - monte-carlo:push-ingest-api
+  - monte-carlo:graphql-api
+errors:
+  - status: 400
+    api: push-ingest
+    title: Schema validation failed
+    detail: Check `details` in the response body for field-level errors.
+    remediation: Fix the payload fields named in `details`.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#error-codes
+  - status: 400
+    api: push-ingest
+    title: Unsupported ingest query-log log_type
+    detail: >-
+      Either `resource_type` was used on the query-log endpoint (query logs use `log_type`; metadata and
+      lineage use `resource_type`), or the `log_type` value is not in the supported list.
+    remediation: Use `log_type`, or preview candidate dialects with the GraphQL query parseQueryForLogTypes.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#troubleshooting
+  - status: 401
+    api: push-ingest
+    title: Authentication failed
+    detail: Wrong key ID or secret, or the key does not exist.
+    remediation: Check the `x-mcd-id` and `x-mcd-token` headers; the key must be an Ingestion-scoped integration key.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#troubleshooting
+  - status: 403
+    api: push-ingest
+    title: Key not authorized for resource
+    detail: >-
+      The key is scoped to specific warehouse UUIDs and the `resource.uuid` in the payload (or any
+      warehouse referenced by a lineage edge) is not in the allowed list.
+    remediation: Use an unscoped key or add the warehouse UUID to the key's allowlist.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#troubleshooting
+  - status: 403
+    api: graphql
+    title: Integration key used against GraphQL / permission excluded
+    detail: >-
+      parseQueryForLogTypes returns 403 when called with an Ingestion-scoped integration key, or when a
+      custom role explicitly excludes `lineage/read`.
+    remediation: Use a standard API key from Settings -> API.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#preview-which-log_type-to-use
+  - status: 413
+    api: push-ingest
+    title: Payload too large
+    detail: The compressed request body exceeds 1 MB.
+    remediation: Split the `events` list into batches of ~500.
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#error-codes
+  - status: 5xx
+    api: push-ingest
+    title: Server error
+    detail: Server-side failure.
+    remediation: Retry with exponential backoff.
+    retryable: true
+    source: https://docs.getmontecarlo.com/docs/push-ingest-api#error-codes
+  - status: 401
+    api: mcp
+    title: MCP unauthorized
+    detail: >-
+      Wrong Key id / Key secret, headers not passed, or a standard API key used where an MCP Server key is
+      required. Anonymous requests receive a Bearer challenge with RFC 9728 resource_metadata.
+    remediation: Use an MCP-server key type, or complete the OAuth flow.
+    source: https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations#troubleshooting
+  - status: 403
+    api: mcp
+    title: Invalid OAuth error response
+    detail: Often an outdated MCP client, or a client that sends an empty Authorization header.
+    remediation: Upgrade the client.
+    source: https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations#troubleshooting

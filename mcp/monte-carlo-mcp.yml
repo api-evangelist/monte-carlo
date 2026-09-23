@@ -1,21 +1,138 @@
-generated: '2026-09-11'
-method: probed
-source: https://mcp.getmontecarlo.com/mcp
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/mcp-server
 status: gated
+name: Monte Carlo MCP Server
+description: >-
+  First-party, fully hosted Model Context Protocol server for the Monte Carlo data + AI observability
+  platform. Lets an agent investigate alerts, explore assets and lineage, create and tune monitors, and
+  evaluate AI agent performance. Runs on AWS Lambda behind Monte Carlo's Integration Gateway, is stateless,
+  and executes every call under the authenticated user's identity against Monte Carlo's GraphQL API.
+  An Editor role or above is required.
 server:
   name: monte-carlo
-  transport: http
+  transport: streamable-http
   url: https://mcp.getmontecarlo.com/mcp
 deployment:
   mode: remote
   endpoint: https://mcp.getmontecarlo.com/mcp
+  auth: oauth
   verified: probed
   probe: gated
-  checked: '2026-09-11'
-  source: ptr_only reconciliation 2026-09-11 (apis.yml pointed here, no manifest existed)
-  probe_why: RFC 9728 challenge on the MCP path only
-tools_note: No tool list captured. This manifest records a PROBED, reachable endpoint only; anonymous
-  tools/list was auth-gated or the server requires an initialize handshake this reachability probe does
-  not perform. Run signals/audit_mcp_authorship.py --probe to enumerate tools and settle platform-vs-provider
-  authorship. Do NOT derive a tool list from the OpenAPI and store it here -- that is a candidate manifest,
-  and it belongs under an X-MCPServerCandidate pointer.
+  checked: '2026-09-16'
+  probe_evidence:
+    url: https://mcp.getmontecarlo.com/mcp
+    method: POST tools/list (anonymous)
+    http_status: 401
+    www_authenticate: Bearer error="invalid_token", error_description="Authentication required",
+      resource_metadata="https://mcp.getmontecarlo.com/.well-known/oauth-protected-resource/mcp",
+      scope="offline_access"
+  note: >-
+    Remote endpoint. The docs' key-based setup runs `npx -y mcp-remote https://mcp.getmontecarlo.com/mcp`
+    with an Authorization header; mcp-remote is a generic third-party stdio bridge to the same hosted
+    endpoint, not a Monte Carlo package, so this is not a local-stdio deployment.
+authentication:
+  - type: oauth2.1
+    detail: OAuth 2.1 with Dynamic Client Registration (no client ID/secret issued); PKCE S256.
+    authorization_server: https://auth.getmontecarlo.com
+    protected_resource_metadata: https://mcp.getmontecarlo.com/.well-known/oauth-protected-resource/mcp
+    scopes: [offline_access]
+    docs: https://docs.getmontecarlo.com/docs/mcp-server#option-2-oauth-recommended-for-all-other-agents
+  - type: api-key
+    detail: >-
+      MCP Server keys (key type "MCP server") only; standard API keys are rejected. Sent as
+      `Authorization: Bearer <KEY_ID>:<KEY_SECRET>` or as `x-mcd-id` / `x-mcd-token` headers.
+    create: montecarlo mcp create-key --description "..." (CLI v0.141.4+), or GraphQL mutation createMcpIntegrationKey
+    docs: https://docs.getmontecarlo.com/docs/mcp-server#option-3-api-keys-advanced
+endpoints:
+  - url: https://mcp.getmontecarlo.com/mcp
+    purpose: Primary MCP endpoint documented for all clients (Claude connector, OAuth clients, mcp-remote).
+    source: https://docs.getmontecarlo.com/docs/mcp-server
+    anonymous_probe: 401 (OAuth challenge)
+  - url: https://mcp.getmontecarlo.com/mcp/toolkit
+    purpose: Endpoint the first-party Agent Toolkit plugins configure (Claude Code, Codex, Cortex Code, Cursor).
+    source: https://github.com/monte-carlo-data/mc-agent-toolkit/blob/main/plugins/claude-code/.mcp.json
+    anonymous_probe: 401 (OAuth challenge; resource metadata at /.well-known/oauth-protected-resource/mcp/toolkit)
+  - url: https://montecarlo.ai/wp-json/mcp/mcp-oauth-server
+    purpose: >-
+      Separate MCP endpoint advertised by the montecarlo.ai marketing site's
+      /.well-known/oauth-protected-resource (WordPress MCP adapter, scope "mcp"). Not mentioned in the
+      developer docs; its tool surface is unknown.
+    source: https://montecarlo.ai/.well-known/oauth-protected-resource
+    anonymous_probe: 401 {"code":"mcp_unauthorized"}
+distribution:
+  - channel: Claude Connectors Directory
+    url: https://claude.com/connectors/monte-carlo
+    note: Anthropic-verified connector, "Made by Monte Carlo", connector URL https://mcp.getmontecarlo.com/mcp, added May 2026.
+  - channel: Snowflake Cortex Agents external MCP server
+    url: https://docs.getmontecarlo.com/docs/mcp-server#connect-from-a-snowflake-cortex-agent
+toolset_selection_header: x-mcd-toolset
+toolsets:
+  - name: default
+    description: Always active. Alerts, monitors, assets, lineage, data operations, and utility tools.
+  - name: extended
+    description: Default tools plus use-case and dashboard-widget tools.
+    adds: [get_use_cases, get_use_case_tables, get_use_case_table_summary]
+  - name: agent_observability
+    description: Default tools plus AI agent inspection tools.
+    adds: [get_agent_metadata, get_agent_conversation, get_agent_trace]
+request_controls_source: https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations
+request_controls:
+  - header: x-mcp-readonly
+    effect: Exposes only read-only tools; write tools (update_alert, create_or_update_* monitors) are hidden and rejected.
+  - header: x-mcp-tools
+    effect: Comma-separated allow-list intersected with the active toolset; enforced at call time.
+tools_source: >-
+  Live tools/list is OAuth-gated, so no inputSchema was captured. Tool names below come from two published
+  sources: the Claude Connectors Directory listing (25 tools, shown in camelCase display form) and the
+  tool names Monte Carlo's own docs cite in snake_case. Schemas require authenticated introspection.
+tools:
+  - {name: get_alerts, directory_name: getAlerts, toolset: default, access: read, cited_in: [directory, docs]}
+  - {name: update_alert, directory_name: updateAlert, toolset: default, access: write, cited_in: [directory, docs]}
+  - {name: set_alert_owner, directory_name: setAlertOwner, toolset: default, access: write, cited_in: [directory]}
+  - {name: create_or_update_alert_comment, directory_name: createOrUpdateAlertComment, toolset: default, access: write, cited_in: [directory]}
+  - {name: search, directory_name: search, toolset: default, access: read, cited_in: [directory, docs]}
+  - {name: get_table, directory_name: getTable, toolset: default, access: read, cited_in: [directory, docs]}
+  - {name: get_queries_for_table, directory_name: getQueriesForTable, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_query_data, directory_name: getQueryData, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_asset_lineage, directory_name: getAssetLineage, toolset: default, access: read, cited_in: [directory, docs]}
+  - {name: get_downstream_bi_reports, directory_name: getDownstreamBiReports, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_monitors, directory_name: getMonitors, toolset: default, access: read, cited_in: [directory, docs]}
+  - {name: get_audiences, directory_name: getAudiences, toolset: default, access: read, cited_in: [directory]}
+  - {name: create_validation_monitor_mac, directory_name: createValidationMonitorMac, toolset: default, access: write, cited_in: [directory]}
+  - {name: create_metric_monitor_mac, directory_name: createMetricMonitorMac, toolset: default, access: write, cited_in: [directory]}
+  - {name: create_comparison_monitor_mac, directory_name: createComparisonMonitorMac, toolset: default, access: write, cited_in: [directory]}
+  - {name: create_custom_sql_monitor_mac, directory_name: createCustomSqlMonitorMac, toolset: default, access: write, cited_in: [directory]}
+  - {name: get_use_cases, directory_name: getUseCases, toolset: extended, access: read, cited_in: [directory, docs]}
+  - {name: get_use_case_table_summary, directory_name: getUseCaseTableSummary, toolset: extended, access: read, cited_in: [directory, docs]}
+  - {name: get_use_case_tables, directory_name: getUseCaseTables, toolset: extended, access: read, cited_in: [directory, docs]}
+  - {name: create_custom_dashboard_widget, directory_name: createCustomDashboardWidget, toolset: extended, access: write, cited_in: [directory]}
+  - {name: test_connection, directory_name: testConnection, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_domains, directory_name: getDomains, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_user, directory_name: getUser, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_current_time, directory_name: getCurrentTime, toolset: default, access: read, cited_in: [directory]}
+  - {name: get_validation_predicates, directory_name: getValidationPredicates, toolset: default, access: read, cited_in: [directory]}
+  - {name: alert_assessment, toolset: default, access: read, cited_in: [docs]}
+  - {name: create_or_update_table_monitor, toolset: default, access: write, cited_in: [docs]}
+  - {name: get_agent_metadata, toolset: agent_observability, access: read, cited_in: [docs]}
+  - {name: get_agent_conversation, toolset: agent_observability, access: read, cited_in: [docs]}
+  - {name: get_agent_trace, toolset: agent_observability, access: read, cited_in: [docs]}
+  - {name: create_agent_metric_monitor, toolset: agent_observability, access: write, cited_in: [docs]}
+tools_note: >-
+  snake_case names for directory-only tools are the directory's camelCase display names converted, not
+  confirmed wire names; toolset and access for directory-only tools are inferred from the docs' toolset
+  table and the tool verb. The Agent Toolkit skills reference further tool names (e.g. get_agent_traces,
+  run_troubleshooting_agent, get_alert_agent_classification, get_etl_issues, analyze_storage_costs) that
+  appear to be served on the /mcp/toolkit endpoint; they are not listed here because no tool list for that
+  endpoint is published.
+prompts:
+  - {name: mc-asset-health, description: Check the current health of a table before querying it.}
+  - {name: mc-triage, description: Triage your Monte Carlo alerts so you know where to focus.}
+  - {name: mc-incident-response, description: 'Full incident orchestration, from triage through root cause to remediation.'}
+  - {name: mc-proactive-monitoring, description: Discover coverage gaps and create monitors to close them.}
+related:
+  agent_toolkit: https://github.com/monte-carlo-data/mc-agent-toolkit
+  technical_overview: https://docs.getmontecarlo.com/docs/monte-carlo-mcp-server-technical-overview
+  reference: https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations
+  security: https://docs.getmontecarlo.com/docs/ai-security
+  crosswalk: mcp/monte-carlo-tool-crosswalk.yml

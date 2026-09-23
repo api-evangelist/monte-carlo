@@ -1,0 +1,48 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/using-the-sdk
+packages:
+- name: pycarlo
+  registry: pypi
+  language: python
+  kind: sdk
+  official: true
+  url: https://pypi.org/project/pycarlo/
+  version: 0.15.322
+  published: '2026-09-16'
+  docs: https://apidocs.getmontecarlo.com/
+  evidence: Listed as Monte Carlo's Python SDK on https://docs.getmontecarlo.com/docs/using-the-sdk; PyPI author info@montecarlodata.com.
+  metadata: https://pypi.org/pypi/pycarlo/json
+- name: montecarlodata
+  registry: pypi
+  language: python
+  kind: cli
+  official: true
+  binary: montecarlo
+  url: https://pypi.org/project/montecarlodata/
+  version: 0.175.0
+  published: '2026-08-13'
+  docs: https://clidocs.getmontecarlo.com/
+  evidence: '`pip install -U montecarlodata` on https://docs.getmontecarlo.com/docs/using-the-cli; PyPI author info@montecarlodata.com.'
+  metadata: https://pypi.org/pypi/montecarlodata/json
+- name: mc-agent-toolkit
+  registry: github
+  language: markdown/python
+  kind: agent-plugin
+  official: true
+  url: https://github.com/monte-carlo-data/mc-agent-toolkit
+  version: null
+  published: '2026-09-08'
+  note: No tagged release; published date is the last commit on main (8852e33). Plugins for Claude Code, Codex, Cortex Code, Copilot and Cursor. Apache-2.0.
+- name: terraform-aws-mcd-agent
+  registry: github
+  language: hcl
+  kind: infrastructure-module
+  official: true
+  url: https://github.com/monte-carlo-data/terraform-aws-mcd-agent
+  version: null
+  published: null
+  note: Customer-hosted agent module (also GCP and Azure variants in the org); registry version not checked.
+notes: >-
+  The GitHub repos monte-carlo-data/python-sdk and monte-carlo-data/monte-carlo-cli previously referenced
+  from apis.yml return 404 on 2026-09-16; the packages are distributed via PyPI.

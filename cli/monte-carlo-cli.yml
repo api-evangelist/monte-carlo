@@ -1,0 +1,33 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/using-the-cli
+name: Monte Carlo CLI
+binary: montecarlo
+package: montecarlodata
+reference: https://clidocs.getmontecarlo.com/
+requirements: Python 3.10 or greater
+install:
+- method: pip
+  command: pip install -U montecarlodata
+- verify: montecarlo --version
+configure:
+- description: Interactive setup (choose API key or OAuth)
+  command: montecarlo configure
+- description: API key, non-interactive
+  command: montecarlo configure --api-key --mcd-id <KEY_ID> --mcd-token <SECRET>
+- description: OAuth client credentials (instance ID such as us1 / eu1 required)
+  command: montecarlo configure --oauth --mcd-oauth-client-id <CLIENT_ID> --mcd-oauth-client-secret <CLIENT_SECRET> --mcd-instance-id <INSTANCE_ID>
+- description: Validate the connection
+  command: montecarlo validate
+commands:
+- group: integrations
+  example: montecarlo integrations list
+  description: Onboard and manage warehouse, lake, BI and other integrations.
+- group: mcp
+  example: montecarlo mcp create-key --description "Automation key"
+  description: Create MCP Server keys (CLI v0.141.4+).
+  source: https://docs.getmontecarlo.com/docs/mcp-server
+- group: help
+  example: montecarlo help
+  description: Print help text for every command, subcommand and option.
+notes: Secret management with the CLI is documented at https://docs.getmontecarlo.com/docs/secret-management-with-the-cli.

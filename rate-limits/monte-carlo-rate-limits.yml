@@ -1,0 +1,22 @@
+generated: '2026-09-16'
+method: searched
+source: https://montecarlo.ai/request-for-pricing/
+limit_count: 5
+limits:
+- {scope: per-account, api: graphql, plan: Start, window: 1d, limit: 10000, unit: API calls}
+- {scope: per-account, api: graphql, plan: Scale, window: 1d, limit: 50000, unit: API calls}
+- {scope: per-account, api: graphql, plan: Enterprise, window: 1d, limit: 100000, unit: API calls}
+- {scope: per-account, api: graphql, plan: Business Critical, window: 1d, limit: 100000, unit: API calls}
+- scope: per-request
+  api: push-ingest
+  limit: 1 MB compressed body (~500 events per batch recommended)
+  exhaustion_status: 413
+  source: https://docs.getmontecarlo.com/docs/push-ingest-api#batching-large-payloads
+headers: []
+exhaustion:
+  status: null
+note: >-
+  Daily API call quotas are published per plan on the pricing page. The developer docs do not document
+  rate-limit response headers (X-RateLimit-*, RateLimit-*, Retry-After) or the status returned when the
+  daily quota is exhausted, and none could be observed anonymously (api.getmontecarlo.com answers 403
+  without credentials). The Push Ingest API says to retry 5xx with exponential backoff.

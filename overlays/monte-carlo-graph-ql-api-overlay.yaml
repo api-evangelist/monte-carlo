@@ -1,0 +1,48 @@
+overlay: 1.0.0
+info:
+  title: Monte Carlo GraphQL API — API Evangelist enhancements
+  version: 1.0.0
+  x-generated: '2026-09-16'
+  x-method: generated
+  x-source: docs.getmontecarlo.com (api-authentication, api, push-ingest-api)
+extends: ../openapi/monte-carlo-graph-ql-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    termsOfService: https://montecarlo.ai/terms-of-service
+    x-api-reference: https://apidocs.getmontecarlo.com/
+    x-status-page: https://status.getmontecarlo.com/
+- target: $.components.securitySchemes
+  update:
+    mcdToken:
+      type: apiKey
+      in: header
+      name: x-mcd-token
+      description: API key secret, sent together with x-mcd-id.
+    oauthClientCredentials:
+      type: oauth2
+      description: OAuth 2.0 client credentials; send the JWT as a Bearer token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.getmontecarlo.com/oauth2/token
+          scopes:
+            https://api.getmontecarlo.com/access: API access
+- target: $.security
+  update:
+  - mcdHeaders: []
+    mcdToken: []
+  - oauthClientCredentials:
+    - https://api.getmontecarlo.com/access
+- target: $.paths['/graphql'].post
+  update:
+    x-rate-limit:
+      window: 1d
+      per_plan: {Start: 10000, Scale: 50000, Enterprise: 100000, Business Critical: 100000}
+      source: https://montecarlo.ai/request-for-pricing/
+    x-pagination:
+      style: relay-cursor
+      params: [first, after]
+- target: $.paths['/graphql'].post.responses
+  update:
+    '403':
+      description: Key not permitted for this operation (e.g. an Ingestion-scoped integration key, or a role lacking the permission)

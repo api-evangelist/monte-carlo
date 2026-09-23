@@ -1,0 +1,57 @@
+generated: '2026-09-16'
+method: searched
+source: https://montecarlo.ai/request-for-pricing/
+model: credits
+note: >-
+  Credit-based consumption pricing: customers buy credits consumed per the Consumption Rates
+  (https://docs.getmontecarlo.com/docs/version-21); cost per credit depends on tier. No list prices are
+  published — every tier is "Request pricing". https://montecarlo.ai/pricing/ redirects here.
+plan_count: 4
+plans:
+- name: Start
+  price: null
+  currency: null
+  billing_period: null
+  pricing: sales-quoted (credits)
+  description: For a small team to get started quickly
+  limits:
+    users: 10
+    monitors: 1000
+    api_calls_per_day: 10000
+  support_sla: 24-hour
+  features: [Observability for Agents, ML, Data, and Performance, Fleet of agents to automate work, 'Incident triaging, root cause analysis & lineage', Self-guided onboarding]
+- name: Scale
+  price: null
+  currency: null
+  billing_period: null
+  pricing: sales-quoted (credits)
+  description: For a scaling company with multiple domains
+  limits:
+    users: unlimited
+    monitors: pay per monitor
+    api_calls_per_day: 50000
+  support_sla: 8+ hour
+  features: [Everything in Start, 'Advanced Security: SSO, SCIM, Self-Hosted Storage, PII Filtering, Audit Logging', 'Automation: Data exports, Webhooks', 'Data Mesh support: unlimited data products, domains', FDE services available]
+- name: Enterprise
+  price: null
+  currency: null
+  billing_period: null
+  pricing: sales-quoted (credits)
+  description: End-to-end coverage and governance for the enterprise
+  limits:
+    users: unlimited
+    monitors: pay per monitor
+    api_calls_per_day: 100000
+  support_sla: 4+ hour
+  features: [Everything in Scale, Multi-workspace support, Enterprise cost attribution (chargebacks), Bring-your-own-integration, Push Ingest API (public preview, Enterprise plan or higher)]
+- name: Business Critical
+  price: null
+  currency: null
+  billing_period: null
+  pricing: sales-quoted (credits)
+  description: Maximum availability and resiliency for mission-critical environments
+  limits:
+    users: unlimited
+    monitors: pay per monitor
+    api_calls_per_day: 100000
+  features: [Everything in Enterprise, Dedicated Instance, 'Disaster recovery: rollover to a different region']

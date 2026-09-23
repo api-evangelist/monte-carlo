@@ -1,0 +1,26 @@
+generated: '2026-09-16'
+method: searched
+source: https://docs.getmontecarlo.com/docs/webhooks
+asyncapi: null
+note: Monte Carlo documents outbound alert webhooks but publishes no AsyncAPI document.
+delivery:
+  method: POST
+  content_type: application/json
+  configured_at: Settings -> Notifications -> Create audience -> Channel Webhook
+  signature:
+    header: x-mcd-signature
+    algorithm: HMAC SHA-512
+    optional: true
+    note: Computed over the url-encoded body with the shared secret supplied at setup.
+  ip_allowlisting: External webhook public IP addresses listed on the Account information page.
+events:
+- {event: alert.created, description: Alert is created}
+- {event: alert.acknowledged, description: Alert is acknowledged, alert_feedback: investigating}
+- {event: alert.status_updated, description: Alert status is updated, alert_feedback: [investigating, no_status, work_in_progress, fixed, expected, no_action_needed, false_positive]}
+- {event: alert.owner_changed, description: Alert owner is changed}
+- {event: alert.ticket_attached, description: 'External ticket is attached to an alert (Jira, ServiceNow, etc.)'}
+- {event: alert.marked_incident, description: Alert is marked as incident}
+- {event: alert.unmarked_incident, description: Alert is unmarked as incident}
+- {event: alert.resolved, description: Alert is resolved}
+event_names_note: Event keys are our labels for the eight documented triggers; the docs name them in prose only.
+plan: Webhooks are listed under the Scale tier and above on https://montecarlo.ai/request-for-pricing/.
