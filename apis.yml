@@ -109,9 +109,10 @@ apis:
     A first-party, fully hosted Model Context Protocol server that gives AI agents direct access to Monte
     Carlo — investigating alerts, exploring assets and lineage, creating and tuning monitors, and evaluating
     AI agent performance. 25 tools listed in the Claude Connectors Directory across three toolsets (default,
-    extended, agent_observability) plus four published MCP prompts. Reached over streamable HTTP with OAuth 2.1 and dynamic client registration,
-    or with MCP-scoped keys; also shipped as an Anthropic-verified connector in the Claude Connectors
-    Directory. Runs on AWS Lambda, stateless, executing under the calling user's Monte Carlo identity.
+    extended, agent_observability) plus four published MCP prompts. Reached over streamable HTTP with
+    OAuth 2.1 and dynamic client registration, or with MCP-scoped keys; also shipped as an Anthropic-verified
+    connector in the Claude Connectors Directory. Runs on AWS Lambda, stateless, executing under the calling
+    user's Monte Carlo identity.
   humanURL: https://docs.getmontecarlo.com/docs/mcp-server
   baseURL: https://mcp.getmontecarlo.com/mcp
   tags:
@@ -139,15 +140,13 @@ apis:
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
-  - GraphQL
-  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
     url: openapi/monte-carlo-graph-ql-api-openapi.yml
-  - type: Overlay
-    url: overlays/monte-carlo-graph-ql-api-overlay.yaml
 common:
+- type: Overlay
+  url: overlays/monte-carlo-graph-ql-api-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/monte-carlo-agentic-access.yml
 - type: TrustCenter

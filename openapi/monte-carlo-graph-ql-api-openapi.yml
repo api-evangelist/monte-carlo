@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Monte Carlo Graphql API
+  title: Monte Carlo GraphQL API
   version: v1
   description: 'Monte Carlo exposes a single GraphQL endpoint at
 
