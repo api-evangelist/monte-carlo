@@ -136,3 +136,18 @@ related:
   reference: https://docs.getmontecarlo.com/docs/mcp-server-reference-and-operations
   security: https://docs.getmontecarlo.com/docs/ai-security
   crosswalk: mcp/monte-carlo-tool-crosswalk.yml
+rfc9728:
+  endpoint: https://mcp.getmontecarlo.com/mcp
+  metadata_url: https://mcp.getmontecarlo.com/.well-known/oauth-protected-resource/mcp
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mcp.getmontecarlo.com/mcp
+    authorization_servers:
+    - https://auth.getmontecarlo.com
+    scopes_supported:
+    - offline_access
+    bearer_methods_supported:
+    - header

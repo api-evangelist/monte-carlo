@@ -55,3 +55,34 @@ plans:
     monitors: pay per monitor
     api_calls_per_day: 100000
   features: [Everything in Enterprise, Dedicated Instance, 'Disaster recovery: rollover to a different region']
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  units: []
+  plans:
+  - name: Start
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Scale
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Business Critical
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
