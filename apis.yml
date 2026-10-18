@@ -40,6 +40,15 @@ tags:
 - Data Reliability
 - Data Lake
 - Data Warehouse
+- Data Lineage
+- Monitoring
+- AI Observability
+tags_raw:
+- Data Observability
+- Data Quality
+- Data Reliability
+- Data Lake
+- Data Warehouse
 - Lineage
 - Monitoring
 - AI Observability
@@ -58,6 +67,12 @@ apis:
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
+  - Data Observability
+  - GraphQL
+  - Monitoring
+  - Data Quality
+  - Data Lineage
+  tags_raw:
   - Data Observability
   - GraphQL
   - Monitoring
@@ -140,6 +155,8 @@ apis:
   humanURL: https://docs.getmontecarlo.com/docs/api
   baseURL: https://api.getmontecarlo.com/graphql
   tags:
+  - GraphQL
+  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
