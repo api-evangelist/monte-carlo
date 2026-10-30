@@ -1,4 +1,4 @@
-# Monte Carlo (monte-carlo)
+# Monte Carlo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,67 +66,150 @@
 
 Monte Carlo is a data and AI observability platform that monitors data warehouses, lakes, and pipelines for freshness, volume, schema, and quality anomalies, helping data teams detect, resolve, and prevent data downtime across Snowflake, Databricks, BigQuery, Redshift, and other modern data stack tools. Monte Carlo exposes a GraphQL API at https://api.getmontecarlo.com/graphql used for programmatic access to monitors, incidents, lineage, assets, alerts, custom rules, and lake/metastore integrations, with a supporting Python SDK and CLI (pycarlo / montecarlo). Authentication uses an API Key ID and Token pair sent via headers.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/monte-carlo/refs/heads/main/apis.yml)
+**Areas:** Data Observability · Data Quality · Data Reliability · Data Lake · Data Warehouse · Data Lineage · Monitoring · AI Observability
 
-## Scope
+## Monte Carlo on APIs.io
 
-- **Type:** Index
+Everything profiled for Monte Carlo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/monte-carlo/](https://apis.io/providers/monte-carlo/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Data Observability
-- Data Quality
-- Data Reliability
-- Data Lake
-- Data Warehouse
-- Lineage
-- Monitoring
-- AI Observability
+- [Monte Carlo GraphQL API](https://apis.io/apis/monte-carlo/graphql-api/) — GraphQL API for the Monte Carlo data observability platform. Provides programmatic access to monitors, incidents, assets, lineage, custom rules, warehouses,…
+- [Monte Carlo Push Ingest API](https://apis.io/apis/monte-carlo/push-ingest-api/) — A REST write API for pushing observability data into Monte Carlo from sources its pull-based collectors cannot reach. Three endpoints — POST…
+- [Monte Carlo MCP Server](https://apis.io/apis/monte-carlo/mcp-server/) — A first-party, fully hosted Model Context Protocol server that gives AI agents direct access to Monte Carlo — investigating alerts, exploring assets and…
+- [Monte Carlo Graph QL API](https://apis.io/apis/monte-carlo/monte-carlo-graph-ql-api/) — The Graph QL API from Monte Carlo — 1 operation(s) for graph ql.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Monte Carlo GraphQL API
+GraphQL schemas.
 
-GraphQL API for the Monte Carlo data observability platform. Provides programmatic access to monitors, incidents, assets, lineage, custom rules, warehouses, lakes, metastores, and alerts. Authentication uses an account or personal API Key ID and Token sent via the x-mcd-id and x-mcd-token headers (or as a Bearer token).
+- [Monte Carlo GraphQL API](https://apis.io/graphqls/monte-carlo/monte-carlo-graphql/)
 
-- **Human URL:** [https://docs.getmontecarlo.com/docs/api](https://docs.getmontecarlo.com/docs/api)
-- **Base URL:** `https://api.getmontecarlo.com/graphql`
+#### MCP servers (2)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Data Observability
-- GraphQL
-- Monitoring
-- Data Quality
-- Lineage
+- [monte-carlo](https://apis.io/servers/monte-carlo/monte-carlo/)
+- [Moved to /providers/monte-carlo/](https://apis.io/servers/monte-carlo/monte-carlo-data-mcp-yml/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://docs.getmontecarlo.com/docs/api)
-- [Developer  Resources](https://docs.getmontecarlo.com/docs/developer-resources)
-- [Data  Lakes  Integration](https://docs.getmontecarlo.com/docs/data-lakes)
-- [Python  S D K (pycarlo)](https://github.com/monte-carlo-data/python-sdk)
-- [C L I](https://github.com/monte-carlo-data/monte-carlo-cli)
-- [M C P  Server](https://docs.getmontecarlo.com/docs/mcp-server)
-- [Postman Collection](collections/monte-carlo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/monte-carlo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common Properties
+- [Monte Carlo Agentic Access](https://apis.io/agentic-access/monte-carlo/monte-carlo-agentic-access/)
 
-- [LinkedIn](https://www.linkedin.com/company/monte-carlo-data)
-- [Website](https://www.montecarlodata.com)
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Monte Carlo GraphQL API](https://apis.io/collections/monte-carlo/open-monte-carlo/)
+- [Monte Carlo Graphql API](https://apis.io/collections/monte-carlo/open-monte-carlo-graphql-api/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Monte Carlo Graph Ql Api Overlay](https://apis.io/overlays/monte-carlo/monte-carlo-graph-ql-api-overlay/)
+- [Monte Carlo Graph Ql Api Phrasing Overlay](https://apis.io/overlays/monte-carlo/monte-carlo-graph-ql-api-phrasing-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Monte Carlo Authentication](https://apis.io/security/monte-carlo/monte-carlo-authentication/)
+- [Monte Carlo Domain Security](https://apis.io/security/monte-carlo/monte-carlo-domain-security/)
+- [Monte Carlo Trust Center](https://apis.io/security/monte-carlo/monte-carlo-trust-center/)
+- [Monte Carlo Vulnerability Disclosure](https://apis.io/security/monte-carlo/monte-carlo-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Monte Carlo Scopes](https://apis.io/scopes/monte-carlo/monte-carlo-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Monte Carlo Plans Pricing](https://apis.io/plans/monte-carlo/monte-carlo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Monte Carlo Rate Limits](https://apis.io/rate-limits/monte-carlo/monte-carlo-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://montecarlo.ai/)
 - [Documentation](https://docs.getmontecarlo.com)
-- [GitHub Organization](https://github.com/monte-carlo-data)
-- [Pricing](https://www.montecarlodata.com/pricing/)
-- [Sign Up](https://www.montecarlodata.com/request-a-demo/)
-- [L L Ms Txt](https://docs.getmontecarlo.com/llms.txt)
+- [Getting started](https://docs.getmontecarlo.com/docs/welcome)
+- [API reference](https://apidocs.getmontecarlo.com/)
+- [Pricing](https://montecarlo.ai/request-for-pricing/)
+- [Changelog](https://docs.getmontecarlo.com/changelog)
+- [Blog](https://montecarlo.ai/blog/feed)
+- [Terms of service](https://montecarlo.ai/terms-of-service)
+- [Privacy policy](https://montecarlo.ai/privacy-policy)
+- [GitHub](https://github.com/monte-carlo-data)
+- [Status](https://status.getmontecarlo.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 67.5** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 53.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 84.2 |
+| Developer ergonomics | 67.9 |
+| Access clarity | 85.5 |
+
+**Agent readiness 58.6** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | unknown |
+| Agent Skills | yes |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/monte-carlo/](https://apis.io/providers/monte-carlo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Monte Carlo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/monte-carlo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
